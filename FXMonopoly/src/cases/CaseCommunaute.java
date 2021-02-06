@@ -2,9 +2,9 @@ package cases;
 
 import models.Case;
 
-public class Chance extends Case{
+public class CaseCommunaute extends Case{
 
-	public Chance(String nom, int valeur) {
+	public CaseCommunaute(String nom, int valeur) {
 		super(nom, valeur);
 	}
 
