@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import models.Joueur;
 
 public class AccueilController {
@@ -29,6 +30,7 @@ public class AccueilController {
 		};
 		singlePlayerButton.getScene().getWindow().hide();
 		Stage plateau = new Stage();
+		plateau.initStyle(StageStyle.UNDECORATED);
 		try {
 			fxml=FXMLLoader.load(getClass().getResource("/board/Board.fxml"));
 			Scene scene = new Scene(fxml);
@@ -40,4 +42,8 @@ public class AccueilController {
 		
     }
 
+    @FXML
+    void exit() {
+    	exitButton.getScene().getWindow().hide();
+    }
 }

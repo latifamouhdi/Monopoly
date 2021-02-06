@@ -2,6 +2,7 @@ package application;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;
@@ -22,6 +23,7 @@ public class Main extends Application {
 			Parent root =FXMLLoader.load(getClass().getResource("/accueil/Accueil.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
