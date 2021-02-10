@@ -2,21 +2,19 @@ package Controllers;
 
 
 
-
-import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.swing.ButtonGroup;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import jeu.JoueurMonopoly;
 import models.Joueur;
+
+
 
 public class InfoPlayerController  extends AccueilController {
 
@@ -24,7 +22,13 @@ public class InfoPlayerController  extends AccueilController {
 		// TODO Auto-generated method stub
 		  System.out.println("nombre de player "+ki);
 		  System.out.println(ki);
+		  
+		  
+		  
+		 
 	}
+	@FXML
+	private ToggleButton hatBtn;
 	
     @FXML
     private TextField txt_nameJoueur;
@@ -75,6 +79,9 @@ public class InfoPlayerController  extends AccueilController {
 
     @FXML
     private Button micro;
+    
+    @FXML
+    private ButtonGroup tokenTBG;
 
     @FXML
     private Button nextBtn;
@@ -85,13 +92,15 @@ public class InfoPlayerController  extends AccueilController {
     	counter++;
     	System.out.println(counter);
     	
-if (counter<ki+1 ) {
-	System.out.println(counter);
-	nbrePlayer.setText(""+(counter));
-	 jr.add( new Joueur(txt_nameJoueur.getText(), "id", "argent"));
-
-    }else {
-    	fxmlChange("/board/Board.fxml");
-    	jaune.getScene().getWindow().hide();
-    
-    }}}
+    	if (counter<ki+1 ) {
+		System.out.println(counter);
+		nbrePlayer.setText(""+(counter));
+		 jr.add( new Joueur(txt_nameJoueur.getText(), "id", "argent"));
+	
+	    }else {
+	    	fxmlChange("/board/Board.fxml");
+	    	jaune.getScene().getWindow().hide();
+	    
+	    }
+    	}
+   }

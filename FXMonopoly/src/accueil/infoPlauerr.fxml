@@ -1,39 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
-<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="474.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.InfoPlayerController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.InfoPlayerController">
    <children>
-      <ImageView fitHeight="484.0" fitWidth="328.0" layoutX="6.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../ressources/images/playerNames.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="nameJoueur" layoutX="27.0" layoutY="110.0" prefHeight="25.0" prefWidth="243.0" />
-      <Text fx:id="nbrePlayer" layoutX="199.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="31.986328125">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Text>
-      <Button layoutX="328.0" layoutY="152.0" mnemonicParsing="false" text="Button" />
-      <ToggleButtonGroup layoutX="60.0" layoutY="243.0" prefHeight="25.0" prefWidth="254.0">
-          <toggles>
-              <ToggleButton prefHeight="25.0" prefWidth="20.0" style="-fx-background-color: red;" />
-              <ToggleButton selected="true" style="-fx-background-color: yellow;" />
-              <ToggleButton style="-fx-background-color: blue;" />
-            <ToggleButton layoutX="42.0" layoutY="10.0" style="-fx-background-color: violet;" />
-            <ToggleButton layoutX="58.0" layoutY="10.0" style="-fx-background-color: orange;" />
-            <ToggleButton layoutX="74.0" layoutY="10.0" style="-fx-background-color: b;" />
-            <ToggleButton layoutX="90.0" layoutY="10.0" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: green;" />
-          </toggles>
-      </ToggleButtonGroup>
+      <Pane layoutX="6.0" layoutY="10.0" prefHeight="525.0" prefWidth="336.0" style="-fx-background-color: #C86D59;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="nameJoueur" layoutX="40.0" layoutY="154.0" opacity="0.37" prefHeight="25.0" prefWidth="243.0" styleClass="text-field" stylesheets="@AccueilStyle.css" text="Name" />
+            <ToggleButtonGroup layoutX="67.0" layoutY="255.0" prefHeight="25.0" prefWidth="155.0">
+                <toggles>
+                    <ToggleButton prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: red;" textFill="RED" />
+                    <ToggleButton prefHeight="25.0" prefWidth="29.0" selected="true" style="-fx-background-color: black;" />
+                    <ToggleButton prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: blue;" />
+                  <ToggleButton layoutX="65.0" layoutY="10.0" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: green;" />
+                  <ToggleButton layoutX="89.0" layoutY="10.0" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: yellow;" />
+                  <ToggleButton layoutX="113.0" layoutY="10.0" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: #E500B1;" />
+                  <ToggleButton layoutX="137.0" layoutY="10.0" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: brown;" />
+                </toggles>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ToggleButtonGroup>
+            <Label layoutX="40.0" layoutY="210.0" text="Color:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="305.0" text="Token:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <ToggleButtonGroup fx:id="tokenTBG" layoutX="28.0" layoutY="350.0" prefHeight="70.0" prefWidth="268.0">
+               <toggles>
+                  <ToggleButton fx:id="hatBtn" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                     <graphic>
+                        <ImageView fx:id="hatBtn" fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/images/Hat.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></ToggleButton>
+                  <ToggleButton fx:id="hatBtn1" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                     <graphic>
+                        <ImageView fx:id="ironBtn" fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/images/Iron.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="hatBtn11" layoutX="77.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                     <graphic>
+                        <ImageView fx:id="carBtn" fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/images/Car.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="hatBtn111" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                     <graphic>
+                        <ImageView fx:id="wheelbarrowBtn" fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/images/Wheelbarrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+               </toggles>
+            </ToggleButtonGroup>
+            <ToggleButtonGroup fx:id="tokenTBG1" layoutX="28.0" layoutY="420.0" prefHeight="70.0" prefWidth="268.0">
+               <toggles>
+                  <ToggleButton fx:id="hatBtn1" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/images/Ship.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="hatBtn11" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/images/Boot.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="hatBtn111" layoutX="77.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/images/Dog.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <ToggleButton fx:id="hatBtn1111" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/images/Thimble.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+               </toggles>
+            </ToggleButtonGroup>
+         </children>
+      </Pane>
+      <Pane prefHeight="77.0" prefWidth="296.0" style="-fx-background-color: #C22403;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Text fx:id="nbrePlayer" fill="WHITE" layoutX="212.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="31.986328125">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Text>
+            <Label layoutX="59.0" layoutY="4.0" text="Player" textFill="WHITE">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

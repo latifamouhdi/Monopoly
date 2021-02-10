@@ -3,7 +3,7 @@
  * The style document for the Main Menu.
  *  Created on : 17-Jul-2017, 19:01:52
  *  Author     : Sam P. Morrissey
- */
+
 
 .root {
     -fx-background-color: rgba(255, 255, 255, 1);
@@ -16,9 +16,37 @@
     -fx-border-color: rgba(0, 0, 0, 1);
     -fx-border-width: 2;
 }
+ 
+.button {
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-border-color: rgba(0, 0, 0, 1);
+    -fx-border-width: 2;
+}
 
 .button:hover {
     -fx-background-color: rgba(0, 200, 0, 1);
     -fx-border-color: rgba(0, 200, 0, 1);
     -fx-text-fill: rgba(255, 255, 255, 1);
 }
+*/
+
+
+.text-field{
+   -fx-font-family: "Quicksand";
+   -fx-font-size: 18;
+   -fx-padding: 1,1,1,1;
+   -fx-border-color: white;
+   -fx-border-width: 2;
+   -fx-border-radius: 1;
+   -fx-border: gone;
+   -fx-background-color: transparent;
+   -fx-text-fill: black;
+}
+
+.red-btn{
+	-fx-background-color:  #C22403;
+	-fx-background-radius: 89px;
+	-fx-text-fill: #FFFFFF;
+}
+
+
