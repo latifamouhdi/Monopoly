@@ -15,7 +15,7 @@ import javafx.stage.StageStyle;
 public  class   AccueilController  {
 	
 	
-protected String ss ="ff";
+	protected String ss ="ff";
     @FXML
     private Button deuxBtn;
 
@@ -25,8 +25,8 @@ protected String ss ="ff";
     @FXML
     private Button quatreBtn;
     
-      protected int nbJoueurs;
-      protected int nb= 5;
+    protected int nbJoueurs;
+    protected int nb= 5;
     
 	Parent fxml;
 	
@@ -34,13 +34,21 @@ protected String ss ="ff";
 
 	@FXML
     void addNbPlayers2(ActionEvent event) {
-    	
-    	
-    	
-    	fxmlChange("/accueil/infoPlayer.fxml");
-    	deuxBtn.getScene().getWindow().hide();
-    	ki =2;
-
+		Stage info = new Stage();
+    	info.initStyle(StageStyle.UNDECORATED);
+		try {
+			System.out.println("hi");
+			fxml=FXMLLoader.load(getClass().getResource("/accueil/infoPlayer.fxml"));
+			Scene scene = new Scene(fxml);
+			info.setScene(scene);
+			info.show();
+			deuxBtn.getScene().getWindow().hide();
+			ki =2;
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		setNbJoueurs(2); 	
     }
 
     @FXML

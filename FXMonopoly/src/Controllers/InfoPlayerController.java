@@ -1,10 +1,8 @@
 package Controllers;
 
-
-
 import java.util.ArrayList;
 
-import javax.swing.ButtonGroup;
+import com.gluonhq.charm.glisten.control.ToggleButtonGroup;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,80 +12,56 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
 import models.Joueur;
 
-
-
-public class InfoPlayerController  extends AccueilController {
-
-	private void Start() {
-		// TODO Auto-generated method stub
-		  System.out.println("nombre de player "+ki);
-		  System.out.println(ki);
-		  
-		  
-		  
-		 
-	}
-	@FXML
-	private ToggleButton hatBtn;
+public class InfoPlayerController extends AccueilController{
 	
-    @FXML
-    private TextField txt_nameJoueur;
+	@FXML
+    private TextField nameJoueur;
 
     @FXML
-    private Button red;
+    private ToggleButtonGroup tokenTBG;
 
     @FXML
-    private Button brown;
+    private ToggleButton hatBtn;
 
     @FXML
-    private Button jaune;
+    private ToggleButton ironBtn;
 
     @FXML
-    private Button vert;
+    private ToggleButton carBtn;
 
     @FXML
-    private Button bleuCiel;
+    private ToggleButton wheelbarrowBtn;
 
     @FXML
-    private Button bleuFance;
+    private ToggleButtonGroup tokenTBG2;
 
     @FXML
-    private Button violet;
+    private ToggleButton shipBtn;
 
     @FXML
-    private Button trbouch;
+    private ToggleButton bootBtn;
 
     @FXML
-    private Button lmslo7;
+    private ToggleButton dogBtn;
 
     @FXML
-    private Button voiture;
-
-    @FXML
-    private Button brwita;
-
-    @FXML
-    private Button bateau;
-    @FXML
-    private Text nbrePlayer;
-
-    @FXML
-    private Button sbat;
-
-    @FXML
-    private Button lion;
-
-    @FXML
-    private Button micro;
-    
-    @FXML
-    private ButtonGroup tokenTBG;
+    private ToggleButton thimbleBtn;
 
     @FXML
     private Button nextBtn;
+
+    @FXML
+    private Text nbrePlayer;
+    
     private int counter =1;
-   public ArrayList<Joueur> jr = new ArrayList<Joueur>();  
-   @FXML
+    public ArrayList<Joueur> jr = new ArrayList<Joueur>(); 
+    
+    private void Start() {
+		  System.out.println("nombre de player "+ki);
+		  System.out.println(ki); 
+	}
+    
+    @FXML
     void nextPlayer(ActionEvent event) {
     	counter++;
     	System.out.println(counter);
@@ -95,12 +69,14 @@ public class InfoPlayerController  extends AccueilController {
     	if (counter<ki+1 ) {
 		System.out.println(counter);
 		nbrePlayer.setText(""+(counter));
-		 jr.add( new Joueur(txt_nameJoueur.getText(), "id", "argent"));
+		 jr.add( new Joueur(nameJoueur.getText(), "id", "argent"));
 	
 	    }else {
 	    	fxmlChange("/board/Board.fxml");
-	    	jaune.getScene().getWindow().hide();
+	    	dogBtn.getScene().getWindow().hide();
 	    
 	    }
-    	}
-   }
+    	
+    }
+
+}

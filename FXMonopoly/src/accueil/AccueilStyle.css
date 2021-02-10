@@ -49,4 +49,9 @@
 	-fx-text-fill: #FFFFFF;
 }
 
+.next-btn{
+	-fx-background-color:  #E39A8E;
+	-fx-background-radius: 89px;
+	-fx-text-fill: black;
+}
 
