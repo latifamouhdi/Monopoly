@@ -43,10 +43,23 @@
    -fx-text-fill: black;
 }
 
-.red-btn{
-	-fx-background-color:  #C22403;
+.colors-btn{
+	-fx-background-radius: 89px;
+}
+
+.colors-btn:selected{
+	-fx-background-radius: 1px;
+}
+
+.jeton-button{
+	-fx-background-color:  transparent;
 	-fx-background-radius: 89px;
 	-fx-text-fill: #FFFFFF;
+}
+
+.jeton-button:selected:focused {
+    -fx-background-color: #C22403;
+    -fx-text-fill: black;
 }
 
 .next-btn{

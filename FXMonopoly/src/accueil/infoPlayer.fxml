@@ -18,15 +18,15 @@
       <Pane layoutX="6.0" layoutY="10.0" prefHeight="525.0" prefWidth="336.0" style="-fx-background-color: #C86D59;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="nameJoueur" layoutX="40.0" layoutY="154.0" opacity="0.37" prefHeight="25.0" prefWidth="243.0" styleClass="text-field" stylesheets="@AccueilStyle.css" />
-            <ToggleButtonGroup layoutX="67.0" layoutY="255.0" prefHeight="25.0" prefWidth="155.0">
+            <ToggleButtonGroup layoutX="23.0" layoutY="255.0" prefHeight="40.0" prefWidth="291.0">
                 <toggles>
-                    <ToggleButton prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: red;" textFill="RED" />
-                    <ToggleButton prefHeight="25.0" prefWidth="29.0" selected="true" style="-fx-background-color: black;" />
-                    <ToggleButton prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: blue;" />
-                  <ToggleButton layoutX="65.0" layoutY="10.0" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: green;" />
-                  <ToggleButton layoutX="89.0" layoutY="10.0" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: yellow;" />
-                  <ToggleButton layoutX="113.0" layoutY="10.0" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: #E500B1;" />
-                  <ToggleButton layoutX="137.0" layoutY="10.0" prefHeight="25.0" prefWidth="29.0" style="-fx-background-color: brown;" />
+                    <ToggleButton prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: red;" styleClass="colors-btn" stylesheets="@AccueilStyle.css" textFill="RED" />
+                    <ToggleButton prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: black;" styleClass="colors-btn" stylesheets="@AccueilStyle.css" />
+                    <ToggleButton prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: blue;" styleClass="colors-btn" stylesheets="@AccueilStyle.css" />
+                  <ToggleButton layoutX="65.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: green;" styleClass="colors-btn" stylesheets="@AccueilStyle.css" />
+                  <ToggleButton layoutX="89.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: yellow;" styleClass="colors-btn" stylesheets="@AccueilStyle.css" />
+                  <ToggleButton layoutX="113.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #E500B1;" styleClass="colors-btn" stylesheets="@AccueilStyle.css" />
+                  <ToggleButton layoutX="137.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: brown;" styleClass="colors-btn" stylesheets="@AccueilStyle.css" />
                 </toggles>
                <opaqueInsets>
                   <Insets />
@@ -44,7 +44,7 @@
             </Label>
             <ToggleButtonGroup fx:id="tokenTBG" layoutX="28.0" layoutY="350.0" prefHeight="70.0" prefWidth="268.0">
                <toggles>
-                  <ToggleButton fx:id="hatBtn" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                  <ToggleButton fx:id="hatBtn" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="jeton-button" stylesheets="@AccueilStyle.css" text="ToggleButton">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -52,7 +52,7 @@
                            </image>
                         </ImageView>
                      </graphic></ToggleButton>
-                  <ToggleButton fx:id="ironBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                  <ToggleButton fx:id="ironBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="jeton-button" stylesheets="@AccueilStyle.css" text="ToggleButton">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -61,7 +61,7 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <ToggleButton fx:id="carBtn" layoutX="77.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                  <ToggleButton fx:id="carBtn" layoutX="77.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="jeton-button" stylesheets="@AccueilStyle.css" text="ToggleButton">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -70,7 +70,7 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <ToggleButton fx:id="wheelbarrowBtn" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                  <ToggleButton fx:id="wheelbarrowBtn" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="jeton-button" stylesheets="@AccueilStyle.css" text="ToggleButton">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -83,7 +83,7 @@
             </ToggleButtonGroup>
             <ToggleButtonGroup fx:id="tokenTBG2" layoutX="28.0" layoutY="420.0" prefHeight="70.0" prefWidth="268.0">
                <toggles>
-                  <ToggleButton fx:id="shipBtn" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                  <ToggleButton fx:id="shipBtn" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="jeton-button" stylesheets="@AccueilStyle.css" text="ToggleButton">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -92,7 +92,7 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <ToggleButton fx:id="bootBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                  <ToggleButton fx:id="bootBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="jeton-button" stylesheets="@AccueilStyle.css" text="ToggleButton">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -101,7 +101,7 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <ToggleButton fx:id="dogBtn" layoutX="77.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                  <ToggleButton fx:id="dogBtn" layoutX="77.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="jeton-button" stylesheets="@AccueilStyle.css" text="ToggleButton">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -110,7 +110,7 @@
                         </ImageView>
                      </graphic>
                   </ToggleButton>
-                  <ToggleButton fx:id="thimbleBtn" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="red-btn" stylesheets="@AccueilStyle.css" text="ToggleButton">
+                  <ToggleButton fx:id="thimbleBtn" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="67.0" styleClass="jeton-button" stylesheets="@AccueilStyle.css" text="ToggleButton">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -121,7 +121,7 @@
                   </ToggleButton>
                </toggles>
             </ToggleButtonGroup>
-            <Button fx:id="nextBtn" layoutX="127.0" layoutY="490.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="25.0" prefWidth="83.0" styleClass="next-btn" stylesheets="@AccueilStyle.css" text="Next" />
+            <Button fx:id="nextBtn" layoutX="127.0" layoutY="490.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="25.0" prefWidth="83.0" styleClass="next-btn" stylesheets="@AccueilStyle.css" text="Suivant" />
             <Label layoutX="33.0" layoutY="106.0" text="Nom:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
@@ -136,7 +136,7 @@
                   <Font size="48.0" />
                </font>
             </Text>
-            <Label layoutX="59.0" layoutY="4.0" text="Player" textFill="WHITE">
+            <Label layoutX="59.0" layoutY="4.0" text="Joueur" textFill="WHITE">
                <font>
                   <Font size="48.0" />
                </font>

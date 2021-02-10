@@ -27,28 +27,15 @@ public  class   AccueilController  {
     
     protected int nbJoueurs;
     protected int nb= 5;
-    
 	Parent fxml;
-	
     public static int  ki;
 
 	@FXML
     void addNbPlayers2(ActionEvent event) {
-		Stage info = new Stage();
-    	info.initStyle(StageStyle.UNDECORATED);
-		try {
-			System.out.println("hi");
-			fxml=FXMLLoader.load(getClass().getResource("/accueil/infoPlayer.fxml"));
-			Scene scene = new Scene(fxml);
-			info.setScene(scene);
-			info.show();
-			deuxBtn.getScene().getWindow().hide();
-			ki =2;
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		setNbJoueurs(2); 	
+		setNbJoueurs(2);
+    	fxmlChange("/accueil/infoPlayer.fxml");
+    	deuxBtn.getScene().getWindow().hide();
+       	ki =2;
     }
 
     @FXML
@@ -61,8 +48,9 @@ public  class   AccueilController  {
 
     @FXML
     void addNbPlayers4(ActionEvent event) {
-    	
+    	setNbJoueurs(3);
     	fxmlChange("/accueil/infoPlayer.fxml");
+    	deuxBtn.getScene().getWindow().hide();
        	ki =4;
        	
 		
