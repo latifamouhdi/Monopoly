@@ -1,8 +1,5 @@
 package models;
 
-import fenetres.FenetrePrincipale;
-import jeu.JoueurMonopoly;
-import jeu.PlateauMonopoly;
 
 public abstract class Carte {
 	
@@ -22,13 +19,7 @@ public abstract class Carte {
 		return description;
 	}
 	
-	
-	public abstract void actionCarte(JoueurMonopoly joueur, PlateauMonopoly plateau, FenetrePrincipale fp);
 
-	@Override
-	public String toString() {
-		return "Carte [titre=" + titre + ", description=" + description + "]";
-	}
 	
 	
 
