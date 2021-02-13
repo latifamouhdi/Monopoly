@@ -18,10 +18,37 @@ import models.Joueur;
 public class InfoPlayerController extends AccueilController{
 	
 	@FXML
-    private TextField nameJoueur;
+    private ToggleButton red;
 
     @FXML
-    private ToggleButtonGroup tokenTBG;
+    private ToggleButton black;
+
+    @FXML
+    private ToggleButton blue;
+
+    @FXML
+    private ToggleButton green;
+
+    @FXML
+    private ToggleButton yellow;
+
+    @FXML
+    private ToggleButton pink;
+
+    @FXML
+    private ToggleButton brown;
+    
+	@FXML
+    private ToggleButtonGroup toggleGroupColors;
+
+    @FXML
+    private ToggleButtonGroup tokenTBG1;
+    
+    @FXML
+    private ToggleButtonGroup tokenTBG2;
+    
+	@FXML
+    private TextField nameJoueur;
 
     @FXML
     private ToggleButton hatBtn;
@@ -34,9 +61,6 @@ public class InfoPlayerController extends AccueilController{
 
     @FXML
     private ToggleButton wheelbarrowBtn;
-
-    @FXML
-    private ToggleButtonGroup tokenTBG2;
 
     @FXML
     private ToggleButton shipBtn;
@@ -66,6 +90,43 @@ public class InfoPlayerController extends AccueilController{
     
     @FXML
     void nextPlayer(ActionEvent event) {
+    	nameJoueur.setText("");
+    	if(red.isSelected()==true) {
+    		toggleGroupColors.getChildrenUnmodifiable().get(0).setDisable(true);
+    	}else if(black.isSelected()==true) {
+    		toggleGroupColors.getChildrenUnmodifiable().get(1).setDisable(true);
+    	}else if(blue.isSelected()==true) {
+    		toggleGroupColors.getChildrenUnmodifiable().get(2).setDisable(true);
+    	}else if(green.isSelected()==true) {
+    		toggleGroupColors.getChildrenUnmodifiable().get(3).setDisable(true);
+    	}else if(yellow.isSelected()==true) {
+    		toggleGroupColors.getChildrenUnmodifiable().get(4).setDisable(true);
+    	}else if(pink.isSelected()==true) {
+    		toggleGroupColors.getChildrenUnmodifiable().get(5).setDisable(true);
+    	}else if(brown.isSelected()==true) {
+    		toggleGroupColors.getChildrenUnmodifiable().get(6).setDisable(true);
+    	}
+    	
+    	if(hatBtn.isSelected()==true) {
+    		tokenTBG1.getChildrenUnmodifiable().get(0).setDisable(true);
+    	}else if(ironBtn.isSelected()==true) {
+    		tokenTBG1.getChildrenUnmodifiable().get(1).setDisable(true);
+    	}else if(carBtn.isSelected()==true) {
+    		tokenTBG1.getChildrenUnmodifiable().get(2).setDisable(true);
+    	}else if(wheelbarrowBtn.isSelected()==true) {
+    		tokenTBG1.getChildrenUnmodifiable().get(3).setDisable(true);
+    	}
+    	
+    	if(shipBtn.isSelected()==true) {
+    		tokenTBG2.getChildrenUnmodifiable().get(0).setDisable(true);
+    	}else if(bootBtn.isSelected()==true) {
+    		tokenTBG2.getChildrenUnmodifiable().get(1).setDisable(true);
+    	}else if(dogBtn.isSelected()==true) {
+    		tokenTBG2.getChildrenUnmodifiable().get(2).setDisable(true);
+    	}else if(thimbleBtn.isSelected()==true) {
+    		tokenTBG2.getChildrenUnmodifiable().get(3).setDisable(true);
+    	}
+    	
     	counter++;
     	System.out.println(counter);
     	
