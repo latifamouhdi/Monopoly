@@ -14,6 +14,8 @@ import javafx.scene.layout.Border;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import models.Joueur;
+import models.Partie;
+import models.Pion;
 
 public class InfoPlayerController extends AccueilController{
 	
@@ -80,6 +82,7 @@ public class InfoPlayerController extends AccueilController{
     @FXML
     private Text nbrePlayer;
     
+    
     private int counter =1;
     public ArrayList<Joueur> jr = new ArrayList<Joueur>(); 
     
@@ -90,9 +93,12 @@ public class InfoPlayerController extends AccueilController{
     
     @FXML
     void nextPlayer(ActionEvent event) {
+    	Joueur joueur = new Joueur(nameJoueur.getText());
+    	Pion pion=new Pion("");
     	nameJoueur.setText("");
     	if(red.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(0).setDisable(true);
+    		
     	}else if(black.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(1).setDisable(true);
     	}else if(blue.isSelected()==true) {
@@ -109,23 +115,35 @@ public class InfoPlayerController extends AccueilController{
     	
     	if(hatBtn.isSelected()==true) {
     		tokenTBG1.getChildrenUnmodifiable().get(0).setDisable(true);
+    		pion.setDescription("hat");
     	}else if(ironBtn.isSelected()==true) {
     		tokenTBG1.getChildrenUnmodifiable().get(1).setDisable(true);
+    		pion.setDescription("iron");
     	}else if(carBtn.isSelected()==true) {
     		tokenTBG1.getChildrenUnmodifiable().get(2).setDisable(true);
+    		pion.setDescription("car");
     	}else if(wheelbarrowBtn.isSelected()==true) {
     		tokenTBG1.getChildrenUnmodifiable().get(3).setDisable(true);
+    		pion.setDescription("wheelbarrow");
     	}
     	
     	if(shipBtn.isSelected()==true) {
     		tokenTBG2.getChildrenUnmodifiable().get(0).setDisable(true);
+    		pion.setDescription("ship");
     	}else if(bootBtn.isSelected()==true) {
     		tokenTBG2.getChildrenUnmodifiable().get(1).setDisable(true);
+    		pion.setDescription("boot");
     	}else if(dogBtn.isSelected()==true) {
     		tokenTBG2.getChildrenUnmodifiable().get(2).setDisable(true);
+    		pion.setDescription("dog");
     	}else if(thimbleBtn.isSelected()==true) {
     		tokenTBG2.getChildrenUnmodifiable().get(3).setDisable(true);
+    		pion.setDescription("thimble");
     	}
+    	
+    	
+    	joueur.setPion(pion);
+    	partie.setJoueur(joueur);
     	
     	counter++;
     	System.out.println(counter);
@@ -134,10 +152,15 @@ public class InfoPlayerController extends AccueilController{
 		System.out.println(counter);
 		nbrePlayer.setText(""+(counter));
 	    }else {
+	    	for(Joueur j:partie.getListe()) {
+	    		System.out.println("le joueur	"+j.getNom()+"	a le pion "+j.getPion().getDescription());
+	    	}
+//	    	System.out.println("nombre jr="+partie.getNombreJoueurs());
 	    	fxmlChange("/board/Board.fxml");
 	    	dogBtn.getScene().getWindow().hide();
 	    
 	    }
+    	
     	
     }
     

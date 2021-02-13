@@ -11,11 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import models.Partie;
 
 public  class   AccueilController  {
-	
-	
-	protected String ss ="ff";
+	Partie partie;
     @FXML
     private Button deuxBtn;
 
@@ -25,40 +24,36 @@ public  class   AccueilController  {
     @FXML
     private Button quatreBtn;
     
-    protected int nbJoueurs;
-    protected int nb= 5;
 	Parent fxml;
     public static int  ki;
 
 	@FXML
     void addNbPlayers2(ActionEvent event) {
-		setNbJoueurs(2);
     	fxmlChange("/accueil/infoPlayer.fxml");
     	deuxBtn.getScene().getWindow().hide();
        	ki =2;
+ //      	partie.setNombreJoueurs(2);
     }
 
     @FXML
     void addNbPlayers3(ActionEvent event) {
-    	setNbJoueurs(3);
     	fxmlChange("/accueil/infoPlayer.fxml");
     	deuxBtn.getScene().getWindow().hide();
        	ki =3;
+  //     	partie.setNombreJoueurs(3);
     }
 
     @FXML
     void addNbPlayers4(ActionEvent event) {
-    	setNbJoueurs(3);
     	fxmlChange("/accueil/infoPlayer.fxml");
     	deuxBtn.getScene().getWindow().hide();
        	ki =4;
-       	
+ //      	partie.setNombreJoueurs(4);
 		
 	
     }
     //saisir les infomrltion des jueur 
     public void fxmlChange (String st ) {
-    
     	
     	Stage info = new Stage();
     	info.initStyle(StageStyle.UNDECORATED);
@@ -71,16 +66,8 @@ public  class   AccueilController  {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		setNbJoueurs(2); 	
     }
 
-	public int getNbJoueurs() {
-		return nbJoueurs;
-	}
-
-	public void setNbJoueurs(int nbJoueurs) {
-		this.nbJoueurs = nbJoueurs;
-	}
     
 
 	

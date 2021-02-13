@@ -22,7 +22,7 @@ import models.Des;
 public class BoardController {
 	
 	@FXML
-    private ImageView player1;
+	private ImageView player1;
 
     @FXML
     private ImageView player2;
