@@ -47,14 +47,18 @@
                   <RowConstraints maxHeight="55.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="0.0" valignment="CENTER" vgrow="ALWAYS" />
                </rowConstraints>
+               <children>
+                  <ImageView fx:id="imgDe1" fitHeight="57.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                  <ImageView fx:id="imgDe2" fitHeight="56.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+               </children>
             </GridPane>
          </children>
       </AnchorPane>
       <VBox layoutX="2.0" layoutY="78.0" prefHeight="481.0" prefWidth="71.0" styleClass="v-box">
          <children>
-            <Button fx:id="rollDiceButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0" styleClass="menu-button">
+            <Button fx:id="rollDiceButton" mnemonicParsing="false" onAction="#lancerDe" prefHeight="70.0" prefWidth="70.0" styleClass="menu-button">
                <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgBtnDe" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../ressources/images/DiceIcon.png" />
                      </image>
