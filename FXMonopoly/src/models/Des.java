@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Des {
 
+	
 	private int de1;
 	private int de2;
 	private Random rand = new Random();

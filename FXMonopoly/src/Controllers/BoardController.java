@@ -17,6 +17,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import models.Des;
 
 public class BoardController {
 	
@@ -88,10 +89,12 @@ public class BoardController {
     @FXML
     private ImageView imgDe2;
     
-    private int nbAleatoire() {
-    	int nombreAleatoire1 = 1 + (int)(Math.random() * ((6 - 1) + 1));
-    	return nombreAleatoire1;
-	}
+    Des de = new Des();
+    
+//    private int nbAleatoire() {
+//    	int nombreAleatoire1 = 1 + (int)(Math.random() * ((6 - 1) + 1));
+//    	return nombreAleatoire1;
+//	}
     
     private void moveplayer(ImageView image,int x, int y) {
     	GridPane.setConstraints(image, x, y);
@@ -102,13 +105,14 @@ public class BoardController {
     public static int somme;
     @FXML
     void lancerDe() {
-    	int nombreAleatoire1 = nbAleatoire();
-    	Image de1 = new Image("/ressources/images/de"+nombreAleatoire1+".jpg");
-        imgDe1.setImage(de1);
-        int nombreAleatoire2 = nbAleatoire();
-        Image de2 = new Image("/ressources/images/de"+nombreAleatoire2+".jpg");
-        imgDe2.setImage(de2);
-        somme=somme+nombreAleatoire1+nombreAleatoire2;
+    	de.lancerDes();
+    	int de1 = de.getDe1();
+    	Image imgde1 = new Image("/ressources/images/de"+de1+".jpg");
+        imgDe1.setImage(imgde1);
+        int de2 = de.getDe2();
+        Image imgde2 = new Image("/ressources/images/de"+de2+".jpg");
+        imgDe2.setImage(imgde2);
+        somme=somme+de.getDes();
         
         if(somme>40) {
         	somme=somme-40;
@@ -123,10 +127,7 @@ public class BoardController {
         }else if (somme<40){
         	moveplayer(player1,  10,10-(40-somme));
         }
-        System.out.println("somme= "+somme);
-//        System.out.println("row="+gridPane.getRowIndex(player1));
-//        System.out.println("column="+gridPane.getColumnIndex(player1));
-//        
+        System.out.println("somme= "+somme);        
     }
         
     
