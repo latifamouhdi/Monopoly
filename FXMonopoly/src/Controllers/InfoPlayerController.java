@@ -133,8 +133,6 @@ public class InfoPlayerController extends AccueilController{
     	if (counter<ki+1 ) {
 		System.out.println(counter);
 		nbrePlayer.setText(""+(counter));
-		 jr.add( new Joueur(nameJoueur.getText(), "id", "argent"));
-	
 	    }else {
 	    	fxmlChange("/board/Board.fxml");
 	    	dogBtn.getScene().getWindow().hide();
