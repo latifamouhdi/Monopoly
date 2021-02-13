@@ -20,7 +20,7 @@
    <children>
       <AnchorPane fx:id="boardAnchor" layoutX="73.0" layoutY="78.0" prefHeight="680.0" prefWidth="680.0" stylesheets="@BoardStyle.css">
          <children>
-            <GridPane fx:id="boardPane" prefHeight="680.0" prefWidth="680.0" styleClass="board-pane" stylesheets="@BoardStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <GridPane fx:id="gridPane" prefHeight="680.0" prefWidth="680.0" styleClass="board-pane" stylesheets="@BoardStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="91.0" minWidth="0.0" prefWidth="0.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="0.0" prefWidth="0.0" />
@@ -50,6 +50,12 @@
                <children>
                   <ImageView fx:id="imgDe1" fitHeight="57.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2" />
                   <ImageView fx:id="imgDe2" fitHeight="56.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                  <ImageView fx:id="player1" fitHeight="45.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="10">
+                     <image>
+                        <Image url="@../ressources/images/Rolled.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="player2" fitHeight="61.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                </children>
             </GridPane>
          </children>

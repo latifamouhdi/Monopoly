@@ -19,12 +19,18 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class BoardController {
+	
+	@FXML
+    private ImageView player1;
+
+    @FXML
+    private ImageView player2;
 
     @FXML
     private AnchorPane boardAnchor;
 
     @FXML
-    private GridPane boardPane;
+    private GridPane gridPane;
 
     @FXML
     private Button rollDiceButton;
@@ -86,16 +92,43 @@ public class BoardController {
     	int nombreAleatoire1 = 1 + (int)(Math.random() * ((6 - 1) + 1));
     	return nombreAleatoire1;
 	}
+    
+    private void moveplayer(ImageView image,int x, int y) {
+    	GridPane.setConstraints(image, x, y);
+
+	}
+    
+    
+    public static int somme;
     @FXML
     void lancerDe() {
-    	
     	int nombreAleatoire1 = nbAleatoire();
     	Image de1 = new Image("/ressources/images/de"+nombreAleatoire1+".jpg");
         imgDe1.setImage(de1);
         int nombreAleatoire2 = nbAleatoire();
         Image de2 = new Image("/ressources/images/de"+nombreAleatoire2+".jpg");
         imgDe2.setImage(de2);
+        somme=somme+nombreAleatoire1+nombreAleatoire2;
+        
+        if(somme>40) {
+        	somme=somme-40;
+        	System.out.println(somme);
+        }
+        if(somme<10 ) {
+        	moveplayer(player1, 10-somme, 10);
+        }else if (somme<20){
+        	moveplayer(player1, 0, 20-somme);
+        }else if (somme<30){
+        	moveplayer(player1, 10-(30-somme), 0);
+        }else if (somme<40){
+        	moveplayer(player1,  10,10-(40-somme));
+        }
+        System.out.println("somme= "+somme);
+//        System.out.println("row="+gridPane.getRowIndex(player1));
+//        System.out.println("column="+gridPane.getColumnIndex(player1));
+//        
     }
+        
     
     @FXML
     void exit() {
