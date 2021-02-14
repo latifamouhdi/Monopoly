@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -99,16 +100,13 @@ public class BoardController extends Partie{
     private Label lab;
     
     @FXML
-    private Label lab1;
-
-    @FXML
-    private Label lab2;
-    
-    @FXML
     private AnchorPane anchorpaneback;
     
     @FXML
     private AnchorPane startFenetre;
+    
+    @FXML
+    private Pane panetest;
     
     Des de = new Des();
     
