@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane id="AnchorPane" minHeight="760.0" minWidth="755.0" prefHeight="760.0" prefWidth="755.0" styleClass="mainFxmlClass" stylesheets="@BoardStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BoardController">
+<AnchorPane id="AnchorPane" fx:id="anchorpaneback" minHeight="760.0" minWidth="755.0" prefHeight="760.0" prefWidth="755.0" styleClass="mainFxmlClass" stylesheets="@BoardStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BoardController">
    <children>
       <AnchorPane fx:id="boardAnchor" layoutX="73.0" layoutY="78.0" prefHeight="680.0" prefWidth="680.0" stylesheets="@BoardStyle.css">
          <children>
@@ -38,6 +38,7 @@
                   <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="90.0" valignment="CENTER" vgrow="ALWAYS" />
                   <RowConstraints maxHeight="55.0" minHeight="55.0" prefHeight="0.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="56.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="56.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="55.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="56.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="56.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
@@ -50,12 +51,13 @@
                <children>
                   <ImageView fx:id="imgDe1" fitHeight="57.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2" />
                   <ImageView fx:id="imgDe2" fitHeight="56.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-                  <ImageView fx:id="player1" fitHeight="45.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="10">
+                  <ImageView fx:id="player1" fitHeight="45.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="11">
                      <image>
                         <Image url="@../ressources/images/Rolled.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="player2" fitHeight="61.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <ImageView fx:id="player2" fitHeight="59.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                  <Label fx:id="lab" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="7" />
                </children>
             </GridPane>
          </children>
@@ -194,5 +196,26 @@
             <TextFlow fx:id="printOut" maxHeight="40.0" maxWidth="340.0" prefHeight="40.0" prefWidth="340.0" styleClass="text-flow" textAlignment="CENTER" />
          </content>
       </ScrollPane>
+      <AnchorPane fx:id="startFenetre" layoutX="213.0" layoutY="340.0" onMouseClicked="#startBtn" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #F3B7AD;">
+         <children>
+            <Label layoutX="110.0" layoutY="14.0" text="Welcome">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="lab1" layoutX="53.0" layoutY="100.0" text="Label" />
+            <Label fx:id="lab2" layoutX="297.0" layoutY="100.0" text="Label" />
+            <Button fx:id="startBtn" layoutX="134.0" layoutY="135.0" mnemonicParsing="false" onAction="#start" prefHeight="39.0" prefWidth="109.0" text="Start">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="172.0" layoutY="74.0" text="VS">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -1,7 +1,9 @@
 package Controllers;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
+
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +20,9 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Des;
+import models.Partie;
 
-public class BoardController {
+public class BoardController extends Partie{
 	
 	@FXML
 	private ImageView player1;
@@ -53,6 +56,9 @@ public class BoardController {
 
     @FXML
     private Label activePlayerName;
+    
+    @FXML
+    private Button startBtn;
 
     @FXML
     private Label activePlayerCash;
@@ -89,12 +95,34 @@ public class BoardController {
     @FXML
     private ImageView imgDe2;
     
+    @FXML
+    private Label lab;
+    
+    @FXML
+    private Label lab1;
+
+    @FXML
+    private Label lab2;
+    
+    @FXML
+    private AnchorPane anchorpaneback;
+    
+    @FXML
+    private AnchorPane startFenetre;
+    
     Des de = new Des();
     
-//    private int nbAleatoire() {
-//    	int nombreAleatoire1 = 1 + (int)(Math.random() * ((6 - 1) + 1));
-//    	return nombreAleatoire1;
-//	}
+    @FXML
+    void start() {
+    	Image img1 = new Image("/ressources/images/"+Partie.getListe().get(0).getPion().getDescription()+".png");
+    	this.player1.setImage(img1);
+    	Image img2 = new Image("/ressources/images/"+Partie.getListe().get(1).getPion().getDescription()+".png");
+    	this.player2.setImage(img2);
+    }
+    
+    
+    
+
     
     private void moveplayer(ImageView image,int x, int y) {
     	GridPane.setConstraints(image, x, y);
@@ -145,5 +173,28 @@ public class BoardController {
 			e.printStackTrace();
 		}
     }
+
+
+	public ImageView getPlayer1() {
+		return player1;
+	}
+
+
+	public void setPlayer1(ImageView player1) {
+		this.player1 = player1;
+		
+	}
+
+
+	public ImageView getPlayer2() {
+		return player2;
+	}
+
+
+	public void setPlayer2(ImageView player2) {
+		this.player2 = player2;
+	}
+    
+    
 
 }

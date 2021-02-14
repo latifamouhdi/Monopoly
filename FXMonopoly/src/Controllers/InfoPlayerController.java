@@ -98,7 +98,6 @@ public class InfoPlayerController extends AccueilController{
     	nameJoueur.setText("");
     	if(red.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(0).setDisable(true);
-    		
     	}else if(black.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(1).setDisable(true);
     	}else if(blue.isSelected()==true) {
@@ -115,30 +114,30 @@ public class InfoPlayerController extends AccueilController{
     	
     	if(hatBtn.isSelected()==true) {
     		tokenTBG1.getChildrenUnmodifiable().get(0).setDisable(true);
-    		pion.setDescription("hat");
+    		pion.setDescription("Hat");
     	}else if(ironBtn.isSelected()==true) {
     		tokenTBG1.getChildrenUnmodifiable().get(1).setDisable(true);
-    		pion.setDescription("iron");
+    		pion.setDescription("Iron");
     	}else if(carBtn.isSelected()==true) {
     		tokenTBG1.getChildrenUnmodifiable().get(2).setDisable(true);
-    		pion.setDescription("car");
+    		pion.setDescription("Car");
     	}else if(wheelbarrowBtn.isSelected()==true) {
     		tokenTBG1.getChildrenUnmodifiable().get(3).setDisable(true);
-    		pion.setDescription("wheelbarrow");
+    		pion.setDescription("Wheelbarrow");
     	}
     	
     	if(shipBtn.isSelected()==true) {
     		tokenTBG2.getChildrenUnmodifiable().get(0).setDisable(true);
-    		pion.setDescription("ship");
+    		pion.setDescription("Ship");
     	}else if(bootBtn.isSelected()==true) {
     		tokenTBG2.getChildrenUnmodifiable().get(1).setDisable(true);
-    		pion.setDescription("boot");
+    		pion.setDescription("Boot");
     	}else if(dogBtn.isSelected()==true) {
     		tokenTBG2.getChildrenUnmodifiable().get(2).setDisable(true);
-    		pion.setDescription("dog");
+    		pion.setDescription("Dog");
     	}else if(thimbleBtn.isSelected()==true) {
     		tokenTBG2.getChildrenUnmodifiable().get(3).setDisable(true);
-    		pion.setDescription("thimble");
+    		pion.setDescription("Thimble");
     	}
     	
     	
