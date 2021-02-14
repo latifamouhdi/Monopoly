@@ -18,7 +18,6 @@ public class Partie {
 
 	
 	public static void setJoueur(Joueur joueur) {
-//		Partie.liste = liste;
 		liste.add(joueur);
 	}
 

@@ -145,16 +145,13 @@ public class InfoPlayerController extends AccueilController{
     	partie.setJoueur(joueur);
     	
     	counter++;
-    	System.out.println(counter);
     	
     	if (counter<ki+1 ) {
-		System.out.println(counter);
 		nbrePlayer.setText(""+(counter));
 	    }else {
 	    	for(Joueur j:partie.getListe()) {
 	    		System.out.println("le joueur	"+j.getNom()+"	a le pion "+j.getPion().getDescription());
-	    	}
-//	    	System.out.println("nombre jr="+partie.getNombreJoueurs());
+	    	};
 	    	fxmlChange("/board/Board.fxml");
 	    	dogBtn.getScene().getWindow().hide();
 	    

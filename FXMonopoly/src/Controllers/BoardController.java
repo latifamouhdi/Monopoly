@@ -6,7 +6,18 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import cases.AllerPrison;
+import cases.CaisseCommunaute;
+import cases.Chance;
+import cases.Compagnie;
 import cases.Gare;
+import cases.Go;
+import cases.Impot;
+import cases.ParcGratuit;
+import cases.Prison;
+import cases.Propriete;
+import cases.Taxe;
+import cases.Terrain;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,9 +35,13 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Des;
+import models.Joueur;
 import models.Partie;
 
 public class BoardController implements Initializable{
+	
+	
+	public Terrain terrain;
 	
 	public static Partie Partie;
 	
@@ -125,22 +140,93 @@ public class BoardController implements Initializable{
 	}
     
     
-   
-    
-
-    
     private void moveplayer(ImageView image,int x, int y) {
+    	
+    	
     	GridPane.setConstraints(image, x, y);
-
+    	
+    	//verfier x du player et x du gare
+    	for(int j = 0; j < Gare.position.length; ++j) {
+    		if(Gare.position[j][0]==x && Gare.position[j][1]==y) {
+    			System.out.println("tu es dans la gare!");
+    			
+    		}
+    	}
+    	
+    	for(int j = 0; j < AllerPrison.position.length; ++j) {
+    		if(AllerPrison.position[j][0]==x && AllerPrison.position[j][1]==y) {
+    			System.out.println("tu es dans aller en prison!");
+    		}
+    	}
+    	
+    	for(int j = 0; j < CaisseCommunaute.position.length; ++j) {
+    		if(CaisseCommunaute.position[j][0]==x && CaisseCommunaute.position[j][1]==y) {
+    			System.out.println("tu es dans caisse communaute!");
+    		}
+    	}
+    	
+    	for(int j = 0; j < Chance.position.length; ++j) {
+    		if(Chance.position[j][0]==x && Chance.position[j][1]==y) {
+    			System.out.println("tu es dans la chance!");
+    		}
+    	}
+    	
+    	for(int j = 0; j < Compagnie.position.length; ++j) {
+    		if(Compagnie.position[j][0]==x && Compagnie.position[j][1]==y) {
+    			System.out.println("tu es dans la compagnie!");
+    		}
+    	}
+    	
+    	for(int j = 0; j < Go.position.length; ++j) {
+    		if(Go.position[j][0]==x && Go.position[j][1]==y) {
+    			System.out.println("tu es dans Go!");
+    		}
+    	}
+    	
+    	for(int j = 0; j < Impot.position.length; ++j) {
+    		if(Impot.position[j][0]==x && Impot.position[j][1]==y) {
+    			System.out.println("tu es dans impot!");
+    		}
+    	}
+    	
+    	for(int j = 0; j < ParcGratuit.position.length; ++j) {
+    		if(Gare.position[j][0]==x && ParcGratuit.position[j][1]==y) {
+    			System.out.println("tu es dans parc pratuit!");
+    		}
+    	}
+    	
+    	for(int j = 0; j < Prison.position.length; ++j) {
+    		if(Gare.position[j][0]==x && Prison.position[j][1]==y) {
+    			System.out.println("tu es dans prison!");
+    		}
+    	}
+    	
+    	for(int j = 0; j < Taxe.position.length; ++j) {
+    		if(Gare.position[j][0]==x && Taxe.position[j][1]==y) {
+    			System.out.println("tu es dans taxe!");
+    		}
+    	}
+    	
+    	for(int j = 0; j < Terrain.getListe().size(); ++j) {
+    		
+    		if(Terrain.getListe().get(j).getX()==x && Terrain.getListe().get(j).getY()==y) {
+    			System.out.println("tu es dans un Terrain!"+Terrain.getListe().get(j).getColeur()+
+    					"tu doit payer "+Terrain.prix);
+    		}
+    		
+    	}
+    	Partie.getListe().get(0).setX(x);
+    	Partie.getListe().get(0).setY(y);
+    	System.out.println("le joueur "+Partie.getListe().get(0).getNom()+
+    			"a: \n X= "+Partie.getListe().get(0).getX()+"et Y ="+Partie.getListe().get(0).getY());
+    	
+    	
 	}
     
     
     public static int somme;
     @FXML
     void lancerDe() {
-    	Gare gare=new Gare(10);
-    	System.out.println(gare.description()+"---"+gare.position+"---"+gare.position.get(10));
-    	gare.afficher();
     	de.lancerDes();
     	int de1 = de.getDe1();
     	Image imgde1 = new Image("/ressources/images/de"+de1+".jpg");
@@ -152,7 +238,6 @@ public class BoardController implements Initializable{
         
         if(somme>40) {
         	somme=somme-40;
-        	System.out.println(somme);
         }
         if(somme<10 ) {
         	moveplayer(player1, 10-somme, 10);
@@ -162,8 +247,7 @@ public class BoardController implements Initializable{
         	moveplayer(player1, 10-(30-somme), 0);
         }else if (somme<40){
         	moveplayer(player1,  10,10-(40-somme));
-        }
-        System.out.println("somme= "+somme);        
+        }      
     }
         
     

@@ -13,6 +13,8 @@ public abstract class Propriete extends Case{
 	}
 
 
-
+	public Propriete() {
+		// TODO Auto-generated constructor stub
+	}
 	
 }

@@ -1,24 +1,32 @@
 package cases;
 
-import java.util.Map;
 
 public class Gare extends Propriete{
-
+	
+	public static int[][] position =
+	{
+	{ 0, 5 } ,
+	{ 5, 0 } ,
+	{ 5, 10 } ,
+	{ 10, 5 } ,
+	};
+	
 	public Gare(int prix) {
 		super(prix);
 		
-		position.put(0, 5);
-		position.put(5, 0);
-		position.put(5, 10);
-		position.put(10, 5);
+		
 	}
 
 	
 	 public void afficher() {
-		for (Map.Entry position : position.entrySet()) {
-	           System.out.println("clé: "+position.getKey() 
-	                              + " | valeur: " + position.getValue());
-	        }
+		 
+		 for (int i = 0; i < position .length; ++i) {
+			 for(int j = 0; j < position [i].length; ++j) {
+				 System.out.print(position [i][j]);
+			 }
+			 System.out.println();
+		 }
+
 
 	}
 
@@ -34,6 +42,11 @@ public class Gare extends Propriete{
 		return "Gare [prix=" + prix + ", sealable=" + sealable + ", position=" + position + ", description()="
 				+ description() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
 				+ super.toString() + "]";
+	}
+
+
+	public static int[][] getPosition() {
+		return position;
 	}
 
 	

@@ -55,7 +55,7 @@
                         <Image url="@../ressources/images/Rolled.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="player2" fitHeight="59.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                  <ImageView fx:id="player2" fitHeight="59.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="6" />
                </children>
             </GridPane>
          </children>
