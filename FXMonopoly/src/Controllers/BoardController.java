@@ -2,11 +2,14 @@ package Controllers;
 
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-
+import cases.Gare;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -23,10 +26,12 @@ import javafx.stage.StageStyle;
 import models.Des;
 import models.Partie;
 
-public class BoardController extends Partie{
+public class BoardController implements Initializable{
+	
+	public static Partie Partie;
 	
 	@FXML
-	private ImageView player1;
+	private ImageView player1 ;
 
     @FXML
     private ImageView player2;
@@ -97,7 +102,7 @@ public class BoardController extends Partie{
     private ImageView imgDe2;
     
     @FXML
-    private Label lab;
+    private static Label lab;
     
     @FXML
     private AnchorPane anchorpaneback;
@@ -110,15 +115,17 @@ public class BoardController extends Partie{
     
     Des de = new Des();
     
-    @FXML
-    void start() {
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
     	Image img1 = new Image("/ressources/images/"+Partie.getListe().get(0).getPion().getDescription()+".png");
     	this.player1.setImage(img1);
     	Image img2 = new Image("/ressources/images/"+Partie.getListe().get(1).getPion().getDescription()+".png");
     	this.player2.setImage(img2);
-    }
+		
+	}
     
     
+   
     
 
     
@@ -131,6 +138,9 @@ public class BoardController extends Partie{
     public static int somme;
     @FXML
     void lancerDe() {
+    	Gare gare=new Gare(10);
+    	System.out.println(gare.description()+"---"+gare.position+"---"+gare.position.get(10));
+    	gare.afficher();
     	de.lancerDes();
     	int de1 = de.getDe1();
     	Image imgde1 = new Image("/ressources/images/de"+de1+".jpg");
@@ -192,6 +202,16 @@ public class BoardController extends Partie{
 	public void setPlayer2(ImageView player2) {
 		this.player2 = player2;
 	}
+
+	public static Label getLab() {
+		return lab;
+	}
+
+	public static void setLab(Label lab) {
+		BoardController.lab = lab;
+	}
+
+	
     
     
 

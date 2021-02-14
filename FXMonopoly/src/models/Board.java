@@ -1,11 +1,15 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Board {
 	public static Board board;
 	
-	Case caze;
+//	Case caze;
+	ArrayList<Case> cases=new ArrayList<Case>();
 	
 	private Board() {
+		
 		
 	}
 	

@@ -44,22 +44,18 @@
                   <RowConstraints maxHeight="56.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="56.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="56.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="55.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="56.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="55.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="0.0" valignment="CENTER" vgrow="ALWAYS" />
                </rowConstraints>
                <children>
                   <ImageView fx:id="imgDe1" fitHeight="57.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2" />
                   <ImageView fx:id="imgDe2" fitHeight="56.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-                  <ImageView fx:id="player1" fitHeight="45.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="12">
+                  <ImageView fx:id="player1" fitHeight="45.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="10">
                      <image>
                         <Image url="@../ressources/images/Rolled.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="player2" fitHeight="59.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-                  <Label fx:id="lab" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-                  <Button fx:id="startBtn" mnemonicParsing="false" onAction="#start" prefHeight="39.0" prefWidth="47.0" text="Start" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                  <ImageView fx:id="player2" fitHeight="59.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="10" />
                </children>
             </GridPane>
          </children>
@@ -104,7 +100,7 @@
             </Button>
             <Button fx:id="endTurnButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0">
                <graphic>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="finiched" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../ressources/images/FinishedIcon.png" />
                      </image>

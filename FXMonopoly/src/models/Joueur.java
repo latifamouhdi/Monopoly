@@ -2,8 +2,8 @@ package models;
 
 
 public class Joueur {
-	String nom;
-	Pion pion;
+	public String nom;
+	public Pion pion;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
