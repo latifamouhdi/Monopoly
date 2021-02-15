@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="265.0" prefWidth="492.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<AnchorPane prefHeight="265.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FenetreController">
    <children>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C86D59;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -52,7 +51,7 @@
                   <URL value="@../board/BoardStyle.css" />
                </stylesheets>
             </Button>
-            <Button layoutX="290.0" layoutY="199.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="NON">
+            <Button fx:id="btn_nom" layoutX="290.0" layoutY="199.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="91.0" text="NON">
                <stylesheets>
                   <URL value="@../accueil/AccueilStyle.css" />
                   <URL value="@../board/BoardStyle.css" />

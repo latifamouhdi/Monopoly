@@ -141,7 +141,10 @@ public class InfoPlayerController extends AccueilController{
     	}
     	
     	
+    	
     	joueur.setPion(pion);
+    	joueur.setAgrent(200000);
+    	joueur.setEstEnPrison(false);
     	partie.setJoueur(joueur);
     	
     	counter++;
@@ -150,7 +153,7 @@ public class InfoPlayerController extends AccueilController{
 		nbrePlayer.setText(""+(counter));
 	    }else {
 	    	for(Joueur j:partie.getListe()) {
-	    		System.out.println("le joueur	"+j.getNom()+"	a le pion "+j.getPion().getDescription());
+	    		System.out.println("le joueur	"+j.getNom()+"	a le pion "+j.getPion().getDescription()+" il a "+joueur.getAgrent());
 	    	};
 	    	fxmlChange("/board/Board.fxml");
 	    	dogBtn.getScene().getWindow().hide();

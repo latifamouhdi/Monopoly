@@ -2,9 +2,10 @@ package models;
 
 
 public class Joueur {
-	
-	public String nom;
-	public Pion pion;
+	public Boolean estEnPrison;
+	public static int agrent;
+	public static String nom;
+	public static Pion pion;
 	public static int x,y;
 	
 	public Joueur(String nom) {
@@ -46,6 +47,26 @@ public class Joueur {
 
 	public void setY(int y) {
 		this.y = y;
+	}
+
+	public int getAgrent() {
+		return agrent;
+	}
+
+	public void setAgrent(int agrents) {
+		this.agrent = agrents;
+	}
+
+	public String toString() {
+		return "Joueur [agrent=" + agrent + ", nom=" + nom + ", pion=" + pion + "]";
+	}
+
+	public Boolean getEstEnPrison() {
+		return estEnPrison;
+	}
+
+	public void setEstEnPrison(Boolean estEnPrison) {
+		this.estEnPrison = estEnPrison;
 	}
 	
 	

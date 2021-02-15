@@ -3,7 +3,7 @@ package models;
 import java.util.ArrayList;
 
 public class Partie {
-	
+	public static Partie partie;
 	private Des de;
 	private Board board;
 	private Banque banque;
@@ -21,7 +21,7 @@ public class Partie {
 		liste.add(joueur);
 	}
 
-	public Partie() {
+	private Partie() {
 		
 	}
 
@@ -34,7 +34,16 @@ public class Partie {
 	}
 
 
-	
+
+
+	public static Partie getInstance() {
+		if(partie != null) {
+			return new Partie();
+		}
+		else {
+			return partie;
+		}
+	}
 	
 	
 

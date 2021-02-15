@@ -52,10 +52,13 @@
                   <ImageView fx:id="imgDe2" fitHeight="56.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2" />
                   <ImageView fx:id="player1" fitHeight="45.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="10">
                      <image>
-                        <Image url="@../ressources/images/Rolled.png" />
+                        <Image url="@../ressources/images/Boot.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="player2" fitHeight="59.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="6" />
+                  <ImageView fx:id="player2" fitHeight="59.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.rowIndex="10">
+                     <image>
+                        <Image url="@../ressources/images/Dog.png" />
+                     </image></ImageView>
                </children>
             </GridPane>
          </children>

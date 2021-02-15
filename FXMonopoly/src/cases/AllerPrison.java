@@ -6,7 +6,7 @@ public class AllerPrison extends Case{
 	
 	public static int[][] position =
 		{
-		{ 0, 10 } ,
+		{ 10, 0 } ,
 		};
 
 	@Override
