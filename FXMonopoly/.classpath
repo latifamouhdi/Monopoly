@@ -7,6 +7,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX"/>
-	<classpathentry kind="lib" path="C:/Users/user/git/Monopoly/FXMonopoly/src/ressources/jars/charm-glisten-4.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/essak/Downloads/charm-glisten-4.4.1(1).jar"/>
+	<classpathentry kind="lib" path="C:/Users/essak/Downloads/charm-glisten-connect-view-4.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/essak/Downloads/Compressed/New folder/charm-down-core-3.8.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/essak/Downloads/Compressed/New folder/charm-down-core-ios-3.8.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/essak/Downloads/Compressed/New folder/charm-down-plugin-storage-3.8.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/essak/Downloads/Compressed/New folder/charm-down-plugin-video-3.8.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/essak/Downloads/Compressed/New folder/charm-down-plugin-video-ios-3.8.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

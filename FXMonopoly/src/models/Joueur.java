@@ -7,7 +7,44 @@ public class Joueur {
 	public static String nom;
 	public static Pion pion;
 	public static int x,y;
-	private int carteprison;
+	public int carteprison;
+	public Boolean doubl1e = false;
+	public Boolean getDoubl1e() {
+		return doubl1e;
+	}
+
+	public void setDoubl1e(Boolean doubl1e) {
+		this.doubl1e = doubl1e;
+	}
+
+	public int getD1() {
+		return d1;
+	}
+
+	public void setD1(int d1) {
+		this.d1 = d1;
+	}
+
+	public int getD2() {
+		return d2;
+	}
+
+	public void setD2(int d2) {
+		this.d2 = d2;
+	}
+
+	public int getCom() {
+		return com;
+	}
+
+	public void setCom(int com) {
+		this.com = com;
+	}
+	public  int d1,d2;
+     private int com =0;
+	
+	
+	
 	
 	public int getCarteprison() {
 		return carteprison;
@@ -76,6 +113,23 @@ public class Joueur {
 
 	public void setEstEnPrison(Boolean estEnPrison) {
 		this.estEnPrison = estEnPrison;
+	}
+	public Boolean doublans (int d1,int d2) {
+	
+		if (d1 == d2) {
+			com++;
+			if(com == 3) {
+				doubl1e=true ;
+			
+			}
+		}else {
+			doubl1e =false;
+		}
+		System.out.println("nombre de dounlons "+com);
+		System.out.println("return : "+doubl1e);
+			
+		return doubl1e ;
+		
 	}
 	
 	

@@ -2,12 +2,18 @@ package Controllers;
 
 
 import java.io.IOException;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import AllerAuPrison.FabriqueGoGail;
 import AllerAuPrison.MethodeGoGail;
+import Sortirdeprison.CarteSortir;
+import Sortirdeprison.Context;
+
+import Sortirdeprison.Payemnts;
+import Sortirdeprison.SortirDePrison;
 import cases.AllerPrison;
 import cases.CaisseCommunaute;
 import cases.Chance;
@@ -165,6 +171,7 @@ public class BoardController implements Initializable{
        // deplacer le pion 
     	GridPane.setConstraints(image, x, y);
     	
+    	
     	//verifier x du player et x du gare
     	for(int j = 0; j < Gare.position.length; ++j) {
     		if(Gare.position[j][0]==x && Gare.position[j][1]==y) {
@@ -315,10 +322,11 @@ public class BoardController implements Initializable{
     void lancerDe() {
   //  	int nombreDoublons =0;
     	de.lancerDes();
+    
     	int de1 = de.getDe1();
     	Image imgde1 = new Image("/ressources/images/de"+de1+".jpg");
         imgDe1.setImage(imgde1);
-        int de2 = de.getDe2();
+        int de2 = de.getDe1();
         Image imgde2 = new Image("/ressources/images/de"+de2+".jpg");
         imgDe2.setImage(imgde2);
         
@@ -335,7 +343,28 @@ public class BoardController implements Initializable{
         	moveplayer(player1, 10-(30-somme), 0);
         }else if (somme<40){
         	moveplayer(player1, 10,10-(40-somme));
-        }      
+        }  
+    	// verification des doublans 
+    	//doublons=3 faire rentrer  au gail 
+    	if (partie.getListe().get(0).doublans(de.getDe1(),de.getDe1())) {
+			partie.getListe().get(0).setX(0);
+			partie.getListe().get(0).setY(10);
+			moveplayer(player1, 0, 10);
+    	}
+    	// verification si le joueur il est deja  dans le gaill
+    	for(int j = 0; j < Prison.position.length; ++j) {
+    		if(Prison.position[j][0]==partie.getListe().get(0).getX() && Prison.position[j][1]==partie.getListe().get(0).getY()) {
+    			System.out.println("dommage tu va rester ici si seulement si tu es dans prison!");
+    		Context ctx = new Context ();
+    		ctx.setTr(new Payemnts());
+    		ctx.appliSTR();
+    		ctx.setTr(new  CarteSortir());
+    		ctx.appliSTR();
+    		
+    			
+    		}
+    	}
+    	
 //        if(de1==de2) {
 //    		if(nombreDoublons==3) {
 //    			//utilisation de la fabriqueGoGail
