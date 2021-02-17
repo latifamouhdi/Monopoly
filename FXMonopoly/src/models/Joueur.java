@@ -1,10 +1,37 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class Joueur {
+	
+	static HashMap<String,Integer > colorGrp = new HashMap<String,Integer>(); { 
+        {  
+          	colorGrp.put("brown", 0);
+        	colorGrp.put("blue", 0);
+        	colorGrp.put("move", 0);
+        	colorGrp.put("orange", 0);
+        	colorGrp.put("red", 0);
+        	colorGrp.put("yellow", 0);
+        	colorGrp.put("green", 0);
+        	colorGrp.put("blue ghami9", 0);
+    		
+ 
+        } 
+    }; 
+	
+	public static HashMap<String, Integer> getColorGrp() {
+		return colorGrp;
+	}
+
+	public static void setColorGrp(HashMap<String, Integer> colorGrp) {
+		Joueur.colorGrp = colorGrp;
+	}
 	public Boolean estEnPrison;
 	public static int agrent;
 	public static String nom;
+	public static String coleur;
 	public static Pion pion;
 	public static int x,y;
 	public int carteprison;
@@ -130,6 +157,14 @@ public class Joueur {
 			
 		return doubl1e ;
 		
+	}
+
+	public static String getColeur() {
+		return coleur;
+	}
+
+	public static void setColeur(String coleur) {
+		Joueur.coleur = coleur;
 	}
 	
 	

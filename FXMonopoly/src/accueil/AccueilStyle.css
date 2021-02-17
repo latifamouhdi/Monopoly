@@ -67,4 +67,7 @@
 	-fx-background-radius: 89px;
 	-fx-text-fill: black;
 }
+.pane{
+	-fx-background-color:  #E39A8E
+}
 

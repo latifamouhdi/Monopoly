@@ -81,6 +81,7 @@ public class InfoPlayerController extends AccueilController{
 
     @FXML
     private Text nbrePlayer;
+   
     
     Partie partie = Partie.getInstance();
     private int counter =1;
@@ -96,18 +97,26 @@ public class InfoPlayerController extends AccueilController{
     	nameJoueur.setText("");
     	if(red.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(0).setDisable(true);
+    		
+    		Partie.getListe().get(0).setColeur("red");
     	}else if(black.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(1).setDisable(true);
+    		Partie.getListe().get(0).setColeur("black");
     	}else if(blue.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(2).setDisable(true);
+    		Partie.getListe().get(0).setColeur("blue");
     	}else if(green.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(3).setDisable(true);
+    		Partie.getListe().get(0).setColeur("green");
     	}else if(yellow.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(4).setDisable(true);
+    		Partie.getListe().get(0).setColeur("yellow");
     	}else if(pink.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(5).setDisable(true);
+    		Partie.getListe().get(0).setColeur("pink");
     	}else if(brown.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(6).setDisable(true);
+    		Partie.getListe().get(0).setColeur("brown");
     	}
     	
     	if(hatBtn.isSelected()==true) {
@@ -143,6 +152,8 @@ public class InfoPlayerController extends AccueilController{
     	partie.getListe().get(counter-1).setPion(pion);
     	partie.getListe().get(counter-1).setAgrent(200000);
     	partie.getListe().get(counter-1).setEstEnPrison(false);
+    
+    	
     	
     	
     	counter++;

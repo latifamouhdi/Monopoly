@@ -3,9 +3,12 @@ package Controllers;
 
 import java.io.IOException;
 
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+
 
 import AllerAuPrison.FabriqueGoGail;
 import AllerAuPrison.MethodeGoGail;
@@ -51,6 +54,70 @@ import models.Rand;
 
 public class BoardController implements Initializable{
 	
+
+	@FXML
+    private Pane move6;
+
+    @FXML
+    private Pane move7;
+
+    @FXML
+    private Pane orange1;
+
+    @FXML
+    private Pane orange2;
+
+    @FXML
+    private Pane orange4;
+
+    @FXML
+    private Pane red1;
+
+    @FXML
+    private Pane red3;
+
+    @FXML
+    private Pane red4;
+
+    @FXML
+    private Pane yellow6;
+
+    @FXML
+    private Pane yellow7;
+
+    @FXML
+    private Pane yellow9;
+
+    @FXML
+    private Pane green1;
+
+    @FXML
+    private Pane green2;
+
+    @FXML
+    private Pane green4;
+
+    @FXML
+    private Pane blue7;
+
+    @FXML
+    private Pane blue9;
+
+    @FXML
+    private Pane brown9;
+
+    @FXML
+    private Pane brown7;
+
+    @FXML
+    private Pane blueciel4;
+
+    @FXML
+    private Pane blueciel2;
+
+    @FXML
+    private Pane blueciel1;
+    
 	public Terrain terrain;
 	
 	public static Partie partie;
@@ -133,6 +200,9 @@ public class BoardController implements Initializable{
     private static Label lab;
     
     @FXML
+    private Pane move9;
+    
+    @FXML
     private Button oui_btn;
 
     @FXML
@@ -144,8 +214,11 @@ public class BoardController implements Initializable{
     @FXML
     private AnchorPane startFenetre;
     
+    
     @FXML
     private Pane panetest;
+    @FXML
+    private FenetreController fenetreController;
     
     
     Des de = new Des();
@@ -157,8 +230,7 @@ public class BoardController implements Initializable{
     	this.player1.setImage(img1);
     	Image img2 = new Image("/ressources/images/"+Partie.getListe().get(1).getPion().getDescription()+".png");
     	this.player2.setImage(img2);
-    	
-		
+    
     	
 	}
     
@@ -288,22 +360,110 @@ public class BoardController implements Initializable{
     	}
     	
     	for(int j = 0; j < Terrain.getListe().size(); ++j) {
-    		
+    	
     		if(Terrain.getListe().get(j).getX()==x && Terrain.getListe().get(j).getY()==y) {
     			System.out.println("tu es dans un Terrain!"+Terrain.getListe().get(j).getColeur()+
     					"tu doit payer "+Terrain.prix);
+    			System.out.println("je suis boarder "+FenetreController.image_name);
+    		//qffichzge d interf	ce 
     			AfficherInterface aff=new AfficherInterface();
     			aff.afficher("/fenetres/fenetre.fxml");
+    			
     		}
+    		{
     		
+//        	if (FenetreController.image_name != "null") {
+//    			System.out.println("nice");
+//    			System.out.println("je suis boarder2 "+FenetreController.image_name);
+//    			System.out.println("nice2");
+//    			if (FenetreController.image_name == "blueciel1" ||FenetreController.image_name == "blueciel2" || FenetreController.image_name == "blueciel4") {
+//    				move6.setStyle("-fx-background-color:  black;");
+//    			    FenetreController.image_name = "null";
+//    		}	} 
+    			String koik =Partie.getListe().get(0).getColeur();
+        	
+    			switch(FenetreController.image_name) {
+            	case "brown9" :  brown9.setStyle("-fx-background-color:  "+koik+";");
+    		                       FenetreController.image_name = "null";
+    		                       break;
+            	case "brown7" : brown7.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "blueciel4" : blueciel4.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "blueciel2" : blueciel2.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "blueciel1" : blueciel1.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "move9" : move9.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "move7" : move7.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "move6" : move6.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "orange4" : orange4.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "orange2" : orange2.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "orange1" : orange1.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "red1" : red1.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "red3" : red3.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "red4" : red4.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "yellow6" : yellow6.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "yellow7" : yellow7.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "yellow9" : yellow9.setStyle("-fx-background-color: "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "green1" : green1.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "green2" : green2.setStyle("-fx-background-color: "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "green4" : green4.setStyle("-fx-background-color: "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "blue7" : blue7.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+            	case "blue9" : blue9.setStyle("-fx-background-color: "+koik+";");
+                FenetreController.image_name = "null";
+                break;
+		                       
+		                       
+		                       
+        	}
     	}
-    	models.Partie.getListe().get(0).setX(x);
-    	models.Partie.getListe().get(0).setY(y);
-    	System.out.println("le joueur "+Partie.getListe().get(0).getNom()+
-    			"a: \n X= "+models.Partie.getListe().get(0).getX()+"et Y ="+Partie.getListe().get(0).getY());
+    	
+    	
     	
     	
 	}
+    	models.Partie.getListe().get(0).setX(x);
+    	models.Partie.getListe().get(0).setY(y);
+    	System.out.println("le joueur "+Partie.getListe().get(0).getNom()+"a: \n X= "+models.Partie.getListe().get(0).getX()+"et Y ="+Partie.getListe().get(0).getY());
+    }
+    	
     
     @FXML
     void decrimenteCarte() {
@@ -318,15 +478,17 @@ public class BoardController implements Initializable{
     	oui_btn.getScene().getWindow().hide();
     }
     public static int somme;
+    
+    public static int nbDoublon=0;
     @FXML
     void lancerDe() {
-  //  	int nombreDoublons =0;
+
     	de.lancerDes();
     
     	int de1 = de.getDe1();
     	Image imgde1 = new Image("/ressources/images/de"+de1+".jpg");
         imgDe1.setImage(imgde1);
-        int de2 = de.getDe1();
+        int de2 = de.getDe2();
         Image imgde2 = new Image("/ressources/images/de"+de2+".jpg");
         imgDe2.setImage(imgde2);
         
@@ -344,9 +506,10 @@ public class BoardController implements Initializable{
         }else if (somme<40){
         	moveplayer(player1, 10,10-(40-somme));
         }  
+        
     	// verification des doublans 
     	//doublons=3 faire rentrer  au gail 
-    	if (partie.getListe().get(0).doublans(de.getDe1(),de.getDe1())) {
+    	if (partie.getListe().get(0).doublans(de.getDe1(),de.getDe2())) {
 			partie.getListe().get(0).setX(0);
 			partie.getListe().get(0).setY(10);
 			moveplayer(player1, 0, 10);
@@ -361,7 +524,6 @@ public class BoardController implements Initializable{
     		ctx.setTr(new  CarteSortir());
     		ctx.appliSTR();
     		
-    			
     		}
     	}
     	
@@ -423,6 +585,22 @@ public class BoardController implements Initializable{
 	public static void setLab(Label lab) {
 		BoardController.lab = lab;
 	}
+
+
+
+	public Pane getMove6() {
+		return move6;
+	}
+
+
+
+	public void setMove6(Pane move6) {
+		this.move6 = move6;
+	}
+
+
+
+	
 
 	
     
