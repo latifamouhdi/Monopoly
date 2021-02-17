@@ -82,18 +82,16 @@ public class InfoPlayerController extends AccueilController{
     @FXML
     private Text nbrePlayer;
     
-    
+    Partie partie = Partie.getInstance();
     private int counter =1;
     public ArrayList<Joueur> jr = new ArrayList<Joueur>(); 
     
-    private void Start() {
-		  System.out.println("nombre de player "+ki);
-		  System.out.println(ki); 
-	}
     
     @FXML
     void nextPlayer(ActionEvent event) {
+    	
     	Joueur joueur = new Joueur(nameJoueur.getText());
+    	partie.getListe().add(joueur);
     	Pion pion=new Pion("");
     	nameJoueur.setText("");
     	if(red.isSelected()==true) {
@@ -142,10 +140,10 @@ public class InfoPlayerController extends AccueilController{
     	
     	
     	
-    	joueur.setPion(pion);
-    	joueur.setAgrent(200000);
-    	joueur.setEstEnPrison(false);
-    	partie.setJoueur(joueur);
+    	partie.getListe().get(counter-1).setPion(pion);
+    	partie.getListe().get(counter-1).setAgrent(200000);
+    	partie.getListe().get(counter-1).setEstEnPrison(false);
+    	
     	
     	counter++;
     	
@@ -153,7 +151,8 @@ public class InfoPlayerController extends AccueilController{
 		nbrePlayer.setText(""+(counter));
 	    }else {
 	    	for(Joueur j:partie.getListe()) {
-	    		System.out.println("le joueur	"+j.getNom()+"	a le pion "+j.getPion().getDescription()+" il a "+joueur.getAgrent());
+	    		System.out.println("le joueur	"+Joueur.getNom()+"	a le pion "+Joueur.getPion().getDescription()+" il a "+Joueur.getAgrent());
+				System.out.println(Partie.getListe().size());
 	    	};
 	    	fxmlChange("/board/Board.fxml");
 	    	dogBtn.getScene().getWindow().hide();

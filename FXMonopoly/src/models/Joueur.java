@@ -7,7 +7,16 @@ public class Joueur {
 	public static String nom;
 	public static Pion pion;
 	public static int x,y;
+	private int carteprison;
 	
+	public int getCarteprison() {
+		return carteprison;
+	}
+
+	public void setCarteprison(int carteprison) {
+		this.carteprison = carteprison;
+	}
+
 	public Joueur(String nom) {
 		this.nom = nom;
 	}
@@ -17,7 +26,7 @@ public class Joueur {
 		this.pion=pion;
 	}
 
-	public String getNom() {
+	public static String getNom() {
 		return nom;
 	}
 
@@ -25,7 +34,7 @@ public class Joueur {
 		this.nom = nom;
 	}
 
-	public Pion getPion() {
+	public static Pion getPion() {
 		return pion;
 	}
 
@@ -49,7 +58,7 @@ public class Joueur {
 		this.y = y;
 	}
 
-	public int getAgrent() {
+	public static int getAgrent() {
 		return agrent;
 	}
 

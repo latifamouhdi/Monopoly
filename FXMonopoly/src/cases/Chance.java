@@ -30,7 +30,7 @@ public class Chance extends Case{
             add("Allez en prison. Ne franchissez pas la case départ Ne touchez pas 200 $"); 
 //            add("Reculez de 3 cases");
             add("Sortir de prison"); 
-            add("Vous avez gagné le prix de mots croisés");
+            add("Vous avez gagné 1000");
         } 
     }; 
     

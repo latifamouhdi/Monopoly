@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import AllerAuPrison.FabriqueGoGail;
+import AllerAuPrison.MethodeGoGail;
 import cases.AllerPrison;
 import cases.CaisseCommunaute;
 import cases.Chance;
@@ -35,6 +37,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.AfficherInterface;
+import models.Case;
 import models.Des;
 import models.Joueur;
 import models.Partie;
@@ -44,7 +47,7 @@ public class BoardController implements Initializable{
 	
 	public Terrain terrain;
 	
-	public static Partie Partie;
+	public static Partie partie;
 	
 	@FXML
 	private ImageView player1 ;
@@ -124,6 +127,12 @@ public class BoardController implements Initializable{
     private static Label lab;
     
     @FXML
+    private Button oui_btn;
+
+    @FXML
+    private Button non_btn;
+    
+    @FXML
     private AnchorPane anchorpaneback;
     
     @FXML
@@ -132,28 +141,31 @@ public class BoardController implements Initializable{
     @FXML
     private Pane panetest;
     
+    
     Des de = new Des();
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-    	
+    	partie=Partie.getInstance();
     	Image img1 = new Image("/ressources/images/"+Partie.getListe().get(0).getPion().getDescription()+".png");
     	this.player1.setImage(img1);
     	Image img2 = new Image("/ressources/images/"+Partie.getListe().get(1).getPion().getDescription()+".png");
     	this.player2.setImage(img2);
+    	
 		
     	
 	}
     
     
+    
     private void moveplayer(ImageView image,int x, int y) {
-    	
-    	Partie.getInstance().getListe().get(0).setX(x);
-    	Partie.getInstance().getListe().get(0).setY(y);
-    	
+    	//deplacer le joueur vers la case(x,y)
+		Partie.getListe().get(0).setX(x);
+		Partie.getListe().get(0).setY(y);
+       // deplacer le pion 
     	GridPane.setConstraints(image, x, y);
     	
-    	//verfier x du player et x du gare
+    	//verifier x du player et x du gare
     	for(int j = 0; j < Gare.position.length; ++j) {
     		if(Gare.position[j][0]==x && Gare.position[j][1]==y) {
     			System.out.println("tu es dans la gare! \n");
@@ -161,9 +173,16 @@ public class BoardController implements Initializable{
     		}
     	}
     	
+    	
     	for(int j = 0; j < AllerPrison.position.length; ++j) {
     		if(AllerPrison.position[j][0]==x && AllerPrison.position[j][1]==y) {
     			System.out.println("tu es dans aller en prison! \n");
+    			FabriqueGoGail fabrique=new FabriqueGoGail();
+				MethodeGoGail methode=fabrique.getMethode("caseGoGail");
+				methode.allezAuprison();
+				moveplayer(player1, 0, 10);
+				AfficherInterface aff = new AfficherInterface();
+    			aff.afficher("/AllerAuPrison/utiliserCarte.fxml");
     		}
     	}
     	
@@ -176,56 +195,47 @@ public class BoardController implements Initializable{
     	for(int j = 0; j < Chance.position.length; ++j) {
     		if(Chance.position[j][0]==x && Chance.position[j][1]==y) {
     			System.out.println("****tu es dans la chance!**** \n");
-    			System.out.println("avant les operation le joueur:	"+Partie.getInstance().getListe().get(0).getNom()+"	a"+Partie.getInstance().getListe().get(0).getAgrent()+"	\n");
     			Rand r = new Rand();
     			r.lancerDes();
     			indice=r.getDe1()-1;
-    			System.out.println("r.getDe=  "+r.getDe1());
-    			System.out.println("r.lancerDes =  "+r+" \n");
-    			System.out.println("indice=  "+indice+" \n");
-    			System.out.println("chance.getcarte(indice)=   "+Chance.getCarte(indice));
+    			
     			if(Chance.getCarte(indice)=="La banque vous verse un dividende de 300 $") {
     				System.out.println("---La banque vous verse un dividende de 300 $--- \n");
-    				int argent=Partie.getInstance().getListe().get(0).getAgrent();
-    				Partie.getInstance().getListe().get(0).setAgrent(argent+300);
-    				System.out.println("apres setArgent :	"+Partie.getInstance().getListe().get(0).getAgrent()+"	\n"	);
+    				int argent=partie.getListe().get(0).getAgrent();
+    				partie.getListe().get(0).setAgrent(argent+300);
+    				System.out.println("apres setArgent :	"+partie.getListe().get(0).getAgrent()+"	\n"	);
     			}
+    			
     			else if(Chance.getCarte(indice)=="Payez les frais scolarité 500 $") {
     				System.out.println("---Payez les frais scolarité 500 $--- \n");
-    				int argent=Partie.getInstance().getListe().get(0).getAgrent();
-    				Partie.getInstance().getListe().get(0).setAgrent(argent-500);
-    				System.out.println("apres setArgent	:	"+Partie.getInstance().getListe().get(0).getAgrent()+"	\n");
+					int argent=models.Partie.getListe().get(0).getAgrent();
+					partie.getListe().get(0).setAgrent(argent-500);
+					System.out.println("apres setArgent	:	"+partie.getListe().get(0).getAgrent()+"	\n");
     			}
+    			
     			else if(Chance.getCarte(indice)=="Allez en prison. Ne franchissez pas la case départ Ne touchez pas 200 $") {
     				System.out.println("---Allez en prison. Ne franchissez pas la case départ Ne touchez pas 200 $--- \n");
-    				System.out.println("avant de partir X =  "+Partie.getInstance().getListe().get(0).getX()+"	\n");
-    				System.out.println("avant de partir Y =  "+Partie.getInstance().getListe().get(0).getY()+"	\n");
-    				Partie.getInstance().getListe().get(0).setX(0);
-    				Partie.getInstance().getListe().get(0).setY(10);
+    				//utilisation de la fabriqueGoGail
+    				FabriqueGoGail fabrique=new FabriqueGoGail();
+    				MethodeGoGail methode=fabrique.getMethode("carteGoGail");
+    				methode.allezAuprison();
+    				partie.getListe().get(0).setX(0);
+    				partie.getListe().get(0).setY(10);
     				moveplayer(player1, 0, 10);
-    				System.out.println("apres de partir X =  "+Partie.getInstance().getListe().get(0).getX()+"	\n");
-    				System.out.println("apres de partir Y =  "+Partie.getInstance().getListe().get(0).getY()+"	\n");
     			}
+    			
     			else if(Chance.getCarte(indice)=="Sortir de prison") {
+    				
     				System.out.println("---Sortir de prison---	\n");
-    				if(Partie.getInstance().getListe().get(0).getEstEnPrison()==true) {
-    					Partie.getInstance().getListe().get(0).setEstEnPrison(false);
-    					System.out.println("vous etes hors prison	\n");
-    				}
-    				else {
-    					System.out.println();
-    				}
-    				System.out.println("---------affichage estEnPrison-------- \n");
-    				System.out.println(Partie.getInstance().getListe().get(0).getEstEnPrison());
-    				moveplayer(player1, 0, 10);
+    				partie.getListe().get(0).setCarteprison(partie.getListe().get(0).getCarteprison()+1);
+					System.out.println("nombre de  carte sortie de prison "+partie.getListe().get(0).getCarteprison());
     				
     			}
     			else if(Chance.getCarte(indice-1)=="Vous avez gagné 1000") {
     				System.out.println("---Vous avez gagné 1000--- \n");
-    				int argent=Partie.getInstance().getListe().get(0).getAgrent();
-    				Partie.getInstance().getListe().get(0).setAgrent(argent+1000);
-    				moveplayer(player1, 0, 10);
-    				System.out.println("apres setArgent :"+Partie.getInstance().getListe().get(0).getAgrent());
+					int argent=partie.getListe().get(0).getAgrent();
+					partie.getListe().get(0).setAgrent(argent+1000);
+					System.out.println("apres setArgent :"+models.Partie.getListe().get(0).getAgrent());
     			}
     			AfficherInterface aff = new AfficherInterface();
     			aff.afficher("/fenetres/carteChance.fxml");
@@ -280,18 +290,30 @@ public class BoardController implements Initializable{
     		}
     		
     	}
-    	Partie.getListe().get(0).setX(x);
-    	Partie.getListe().get(0).setY(y);
+    	models.Partie.getListe().get(0).setX(x);
+    	models.Partie.getListe().get(0).setY(y);
     	System.out.println("le joueur "+Partie.getListe().get(0).getNom()+
-    			"a: \n X= "+Partie.getListe().get(0).getX()+"et Y ="+Partie.getListe().get(0).getY());
+    			"a: \n X= "+models.Partie.getListe().get(0).getX()+"et Y ="+Partie.getListe().get(0).getY());
     	
     	
 	}
     
-    
+    @FXML
+    void decrimenteCarte() {
+    	System.out.println("------ en train de decrementer le nombre de carte");
+    	models.Partie.getInstance();
+		models.Partie.getListe().get(0).setCarteprison(models.Partie.getListe().get(0).getCarteprison()-1);
+		System.out.println("le nombre de carte devient = "+models.Partie.getListe().get(0).getCarteprison());
+    }
+
+    @FXML
+    void exitCarte() {
+    	oui_btn.getScene().getWindow().hide();
+    }
     public static int somme;
     @FXML
     void lancerDe() {
+  //  	int nombreDoublons =0;
     	de.lancerDes();
     	int de1 = de.getDe1();
     	Image imgde1 = new Image("/ressources/images/de"+de1+".jpg");
@@ -299,8 +321,9 @@ public class BoardController implements Initializable{
         int de2 = de.getDe2();
         Image imgde2 = new Image("/ressources/images/de"+de2+".jpg");
         imgDe2.setImage(imgde2);
-        somme=somme+de.getDes();
         
+        somme=somme+de.getDes();
+        System.out.println("somme----"+somme);
         if(somme>40) {
         	somme=somme-40;
         }
@@ -311,8 +334,19 @@ public class BoardController implements Initializable{
         }else if (somme<30){
         	moveplayer(player1, 10-(30-somme), 0);
         }else if (somme<40){
-        	moveplayer(player1,  10,10-(40-somme));
+        	moveplayer(player1, 10,10-(40-somme));
         }      
+//        if(de1==de2) {
+//    		if(nombreDoublons==3) {
+//    			//utilisation de la fabriqueGoGail
+//				FabriqueGoGail fabrique=new FabriqueGoGail();
+//				MethodeGoGail methode=fabrique.getMethode("doublons");
+//				methode.allezAuprison();
+//    		}else {
+//    			nombreDoublons++;
+//        		lancerDe();
+//    		}
+//    	}
     }
         
     
