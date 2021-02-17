@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="265.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SortirController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #C86D59;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="175.0" fitWidth="182.0" layoutX="310.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/images/noun_Gentleman_475740.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="155.0" layoutY="14.0" prefHeight="40.0" prefWidth="194.0" text="Sortir de prison">
+               <font>
+                  <Font name="System Bold Italic" size="28.0" />
+               </font>
+            </Label>
+            <Separator layoutX="74.0" layoutY="53.0" prefHeight="5.0" prefWidth="356.0">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </Separator>
+            <Label fx:id="texteChanceLab" layoutX="33.0" layoutY="74.0" prefHeight="134.0" prefWidth="277.0" text="voulez vous utiliser une carte ">
+               <font>
+                  <Font name="Century" size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="oui_btn" layoutX="192.0" layoutY="208.0" mnemonicParsing="false" onAction="#decrimenteCarte" prefHeight="32.0" prefWidth="91.0" text="OUI">
+               <stylesheets>
+                  <URL value="@../accueil/AccueilStyle.css" />
+                  <URL value="@../board/BoardStyle.css" />
+               </stylesheets>
+            </Button>
+            <Button fx:id="non_btn" layoutX="310.0" layoutY="208.0" mnemonicParsing="false" onAction="#exitCarte" prefHeight="32.0" prefWidth="91.0" text="NON">
+               <stylesheets>
+                  <URL value="@../accueil/AccueilStyle.css" />
+                  <URL value="@../board/BoardStyle.css" />
+               </stylesheets>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
