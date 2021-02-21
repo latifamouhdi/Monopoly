@@ -5,6 +5,6 @@ import models.Partie;
 public interface SortirDePrison {
 	
 	int sotrirStrategy();
-	int sotrirStrategy(int x,int y);
+	boolean sotrirStrategy(int x,int y);
 
 }

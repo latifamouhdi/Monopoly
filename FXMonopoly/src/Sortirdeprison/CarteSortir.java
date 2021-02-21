@@ -1,5 +1,6 @@
 package Sortirdeprison;
 
+import Controllers.BoardController;
 import models.Partie;
 
 public class  CarteSortir implements SortirDePrison {
@@ -7,9 +8,11 @@ public class  CarteSortir implements SortirDePrison {
 	@Override
 	public int sotrirStrategy() {
 		// TODO Auto-generated method stub
-		if(partie.getListe().get(0).carteprison > 0 ) {
-			partie.getListe().get(0).setCarteprison(partie.getListe().get(0).getCarteprison()-1);
+		if(partie.getListe().get(BoardController.tour).carteprison > 0 ) {
+			partie.getListe().get(BoardController.tour).setCarteprison(partie.getListe().get(BoardController.tour).getCarteprison()-1);
 			System.out.println("freeedoom wwaaw");
+			System.out.println("you still have "+partie.getListe().get(BoardController.tour).getCarteprison()+" card");
+			partie.getListe().get(BoardController.tour).setEstEnPrison(false);
 		}else {
 			System.out.println("sorry no carte has been found you will still at the GAIL ( -_- )");
 		}
@@ -17,9 +20,9 @@ public class  CarteSortir implements SortirDePrison {
 	}
 
 	@Override
-	public int sotrirStrategy(int x, int y) {
+	public boolean sotrirStrategy(int x, int y) {
 		// TODO Auto-generated method stub
-		return 0;
+		return false;
 	}
 
 

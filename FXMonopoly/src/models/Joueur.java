@@ -1,40 +1,51 @@
 package models;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 
 public class Joueur {
 	
-	static HashMap<String,Integer > colorGrp = new HashMap<String,Integer>(); { 
+	HashMap<String,Integer > colorGrp = new HashMap<String,Integer>(); { 
         {  
-          	colorGrp.put("brown", 0);
-        	colorGrp.put("blue", 0);
-        	colorGrp.put("move", 0);
-        	colorGrp.put("orange", 0);
-        	colorGrp.put("red", 0);
-        	colorGrp.put("yellow", 0);
-        	colorGrp.put("green", 0);
-        	colorGrp.put("blue ghami9", 0);
+          	colorGrp.put("brown", 2);
+        	colorGrp.put("blue", 3);
+        	colorGrp.put("move", 3);
+        	colorGrp.put("orange", 3);
+        	colorGrp.put("red", 3);
+        	colorGrp.put("yellow", 3);
+        	colorGrp.put("green", 3);
+        	colorGrp.put("blue ghami9", 2);
     		
  
         } 
     }; 
 	
-	public static HashMap<String, Integer> getColorGrp() {
+	public  HashMap<String, Integer> getColorGrp() {
 		return colorGrp;
 	}
 
-	public static void setColorGrp(HashMap<String, Integer> colorGrp) {
-		Joueur.colorGrp = colorGrp;
+	public  void setColorGrp(HashMap<String, Integer> colorGrp) {
+		this.colorGrp = colorGrp;
 	}
+	public static String color_Yard;
 	public Boolean estEnPrison;
-	public static int agrent;
-	public static String nom;
-	public static String coleur;
-	public static Pion pion;
-	public static int x,y;
+	public  int agrent;
+	public  String nom;
+	public  String coleur;
+	public  Pion pion;
+	public  int x,y;
 	public int carteprison;
+	public int  SommedES;
+	public int getSommedES() {
+		return SommedES;
+	}
+
+	public void setSommedES(int sommedES) {
+		SommedES = sommedES;
+	}
 	public Boolean doubl1e = false;
 	public Boolean getDoubl1e() {
 		return doubl1e;
@@ -68,20 +79,18 @@ public class Joueur {
 		this.com = com;
 	}
 	public  int d1,d2;
-     private int com =0;
-	
-	
-	
-	
+     private int com =0;	
 	public int getCarteprison() {
 		return carteprison;
 	}
 
 	public void setCarteprison(int carteprison) {
+
 		this.carteprison = carteprison;
 	}
 
 	public Joueur(String nom) {
+
 		this.nom = nom;
 	}
 	
@@ -90,7 +99,7 @@ public class Joueur {
 		this.pion=pion;
 	}
 
-	public static String getNom() {
+	public  String getNom() {
 		return nom;
 	}
 
@@ -98,7 +107,7 @@ public class Joueur {
 		this.nom = nom;
 	}
 
-	public static Pion getPion() {
+	public Pion getPion() {
 		return pion;
 	}
 
@@ -122,7 +131,7 @@ public class Joueur {
 		this.y = y;
 	}
 
-	public static int getAgrent() {
+	public int getAgrent() {
 		return agrent;
 	}
 
@@ -135,10 +144,12 @@ public class Joueur {
 	}
 
 	public Boolean getEstEnPrison() {
+
 		return estEnPrison;
 	}
 
 	public void setEstEnPrison(Boolean estEnPrison) {
+
 		this.estEnPrison = estEnPrison;
 	}
 	public Boolean doublans (int d1,int d2) {
@@ -159,15 +170,28 @@ public class Joueur {
 		
 	}
 
-	public static String getColeur() {
+	public String getColeur() {
 		return coleur;
 	}
 
-	public static void setColeur(String coleur) {
-		Joueur.coleur = coleur;
+	public void setColeur(String coleur) {
+		this.coleur = coleur;
 	}
 	
 	
-	
-	
+	public void checkAll() {
+		for (Entry<String, Integer> mapentry : colorGrp.entrySet()) {
+    		
+			if (mapentry.getValue()== 0){
+				System.out.println("********Congratulation**********");
+				System.out.println(" You have just Collect all  "+mapentry.getKey()+" Yard");
+				System.out.println("yu can start building now");
+				System.out.println("-----------------------------------");
+				color_Yard =mapentry.getKey();
+				AfficherInterface aff1 = new AfficherInterface();
+				aff1.afficher("/fenetres/Congratulation.fxml");
+			}
+			
+			}  					
+	}
 }

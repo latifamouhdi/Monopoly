@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import models.Partie;
 
+import java.util.Map.Entry;
 public class FenetreController implements Initializable{
 
 	@FXML
@@ -28,29 +29,43 @@ public class FenetreController implements Initializable{
     private Button btn_nom;
     static String image_name ="null";
     Partie partie = Partie.getInstance();
-    
+	static String coleur;
     @FXML
     void acheterTerrain() {
-    	int x=partie.getListe().get(0).getX();
-    	int y=partie.getListe().get(0).getY();
+    	
+    	int x=partie.getListe().get(BoardController.tour).getX();
+    	int y=partie.getListe().get(BoardController.tour).getY();
+    	String temp;
     	
     	for (int i =0;i<Terrain.getListe().size();i++) {
     		if (Terrain.getListe().get(i).getX()==x && Terrain.getListe().get(i).getY()==y) {
+    			
     			image_name = Terrain.getListe().get(i).getImage();
-    			System.out.println("je suis "+image_name);
-    			Iterator  it =Partie.getListe().get(0).getColorGrp().entrySet().iterator();
+    			coleur = Terrain.getListe().get(i).getColeur();
     		
-    			
-    			while (it.hasNext()) {
-    			 
-    			}
-    			
+    			// yurne la valeur de vendu true 
+    			Terrain.getListe().get(i).setVendu(true);
+    			//informer le jpoueur que vous aver acheter un terrain d"aprer incrementer leur Hashmap des terrain 
+    			for (Entry<String, Integer> mapentry : Partie.getListe().get(BoardController.tour).getColorGrp().entrySet()) {
+    	    		
+    				if (mapentry.getKey()== coleur){	
+        				temp =mapentry.getKey();
+        				System.out.println("ID"+mapentry.getKey());
+        				System.out.println("value"+mapentry.getValue());
+        				mapentry.setValue(mapentry.getValue()-1);
+    				}  			
     		}
-    	}
-    	partie.getListe().get(0).setAgrent(partie.getListe().get(0).getAgrent()-500);
-    	System.out.println("vous avez payer 500  et donc vous avez acheter un terrain +colro ");
+    			
+    	} 
     }
-    
+    	//verify si le joueur possed tous les terran de meme couleur
+    	partie.getListe().get(BoardController.tour).checkAll();
+    	
+    	partie.getListe().get(BoardController.tour).setAgrent(partie.getListe().get(BoardController.tour).getAgrent()-500);
+    	System.out.println("vous avez payer 500  et donc vous avez acheter un terrain  ");
+    	System.out.println("argent "+partie.getListe().get(BoardController.tour).getAgrent());
+    	btn_nom.getScene().getWindow().hide();
+    }
     @FXML
     void exit() {
 

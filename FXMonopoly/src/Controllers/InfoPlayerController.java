@@ -2,6 +2,7 @@ package Controllers;
 
 import java.util.ArrayList;
 
+
 import com.gluonhq.charm.glisten.control.ToggleButtonGroup;
 
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.Border;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import models.AfficherInterface;
 import models.Joueur;
 import models.Partie;
 import models.Pion;
@@ -78,47 +80,37 @@ public class InfoPlayerController extends AccueilController{
 
     @FXML
     private Button nextBtn;
-
     @FXML
     private Text nbrePlayer;
-   
-    
     Partie partie = Partie.getInstance();
-    private int counter =1;
-    public ArrayList<Joueur> jr = new ArrayList<Joueur>(); 
-    
-    
+    private int counter =1;  
     @FXML
     void nextPlayer(ActionEvent event) {
-    	
-    	Joueur joueur = new Joueur(nameJoueur.getText());
-    	partie.getListe().add(joueur);
+    	Joueur joueur = new Joueur(nameJoueur.getText());     	
     	Pion pion=new Pion("");
     	nameJoueur.setText("");
-    	if(red.isSelected()==true) {
-    		toggleGroupColors.getChildrenUnmodifiable().get(0).setDisable(true);
-    		
-    		Partie.getListe().get(0).setColeur("red");
+        	if(red.isSelected()==true) {
+    		toggleGroupColors.getChildrenUnmodifiable().get(0).setDisable(true); 	
+    		joueur.setColeur("red");
     	}else if(black.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(1).setDisable(true);
-    		Partie.getListe().get(0).setColeur("black");
+    		joueur.setColeur("black");
     	}else if(blue.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(2).setDisable(true);
-    		Partie.getListe().get(0).setColeur("blue");
+    		joueur.setColeur("blue");
     	}else if(green.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(3).setDisable(true);
-    		Partie.getListe().get(0).setColeur("green");
+    		joueur.setColeur("green");
     	}else if(yellow.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(4).setDisable(true);
-    		Partie.getListe().get(0).setColeur("yellow");
+    		joueur.setColeur("yellow");
     	}else if(pink.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(5).setDisable(true);
-    		Partie.getListe().get(0).setColeur("pink");
+    		joueur.setColeur("pink");
     	}else if(brown.isSelected()==true) {
     		toggleGroupColors.getChildrenUnmodifiable().get(6).setDisable(true);
-    		Partie.getListe().get(0).setColeur("brown");
+    		joueur.setColeur("brown");
     	}
-    	
     	if(hatBtn.isSelected()==true) {
     		tokenTBG1.getChildrenUnmodifiable().get(0).setDisable(true);
     		pion.setDescription("Hat");
@@ -132,7 +124,6 @@ public class InfoPlayerController extends AccueilController{
     		tokenTBG1.getChildrenUnmodifiable().get(3).setDisable(true);
     		pion.setDescription("Wheelbarrow");
     	}
-    	
     	if(shipBtn.isSelected()==true) {
     		tokenTBG2.getChildrenUnmodifiable().get(0).setDisable(true);
     		pion.setDescription("Ship");
@@ -146,33 +137,18 @@ public class InfoPlayerController extends AccueilController{
     		tokenTBG2.getChildrenUnmodifiable().get(3).setDisable(true);
     		pion.setDescription("Thimble");
     	}
-    	
-    	
-    	
-    	partie.getListe().get(counter-1).setPion(pion);
-    	partie.getListe().get(counter-1).setAgrent(200000);
-    	partie.getListe().get(counter-1).setEstEnPrison(false);
-    
-    	
-    	
-    	
-    	counter++;
-    	
+    	joueur.setPion(pion);
+    	joueur.setAgrent(20000);
+    	joueur.setEstEnPrison(false);
+    	partie.setJoueur(joueur);
+    	counter++;	    	
     	if (counter<ki+1 ) {
 		nbrePlayer.setText(""+(counter));
 	    }else {
-	    	for(Joueur j:partie.getListe()) {
-	    		System.out.println("le joueur	"+Joueur.getNom()+"	a le pion "+Joueur.getPion().getDescription()+" il a "+Joueur.getAgrent());
-				System.out.println(Partie.getListe().size());
-	    	};
-	    	fxmlChange("/board/Board.fxml");
+			AfficherInterface aff1 = new AfficherInterface();
+			aff1.afficher("/board/Board.fxml");
 	    	dogBtn.getScene().getWindow().hide();
-	    
 	    }
-    	
-    	
     }
-    
-    
-
 }
+

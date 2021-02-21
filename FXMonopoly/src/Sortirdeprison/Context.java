@@ -12,5 +12,7 @@ public class Context {
 	}
 public void appliSTR () {
 	tr.sotrirStrategy();
+	
 }
+
 }

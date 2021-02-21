@@ -4,6 +4,8 @@ package Controllers;
 import java.io.IOException;
 
 
+
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -53,8 +55,9 @@ import models.Partie;
 import models.Rand;
 
 public class BoardController implements Initializable{
-	
 
+    @FXML
+    private ImageView finiched;
 	@FXML
     private Pane move6;
 
@@ -204,23 +207,21 @@ public class BoardController implements Initializable{
     
     @FXML
     private Button oui_btn;
-
     @FXML
-    private Button non_btn;
-    
+    private Button non_btn;    
     @FXML
-    private AnchorPane anchorpaneback;
-    
+    private AnchorPane anchorpaneback;  
     @FXML
-    private AnchorPane startFenetre;
-    
-    
+    private AnchorPane startFenetre;  
     @FXML
     private Pane panetest;
+    public static int des1 ;//utilisation pour changer l'image de des ou cas ou tu es dans le gail et tu veux sortir chaoisisant get de des 
+    public static int des2;
+    public static int tour;//pour indiquer le tour d chazque playyer 
     @FXML
     private FenetreController fenetreController;
-    
-    
+  public   static int round =0;
+
     Des de = new Des();
     
     @Override
@@ -228,22 +229,31 @@ public class BoardController implements Initializable{
     	partie=Partie.getInstance();
     	Image img1 = new Image("/ressources/images/"+Partie.getListe().get(0).getPion().getDescription()+".png");
     	this.player1.setImage(img1);
+    	
     	Image img2 = new Image("/ressources/images/"+Partie.getListe().get(1).getPion().getDescription()+".png");
     	this.player2.setImage(img2);
-    
+    	//test by hamza pion *
+    	
+    //afficher la liste des joueur
+    	System.out.println("*********");
+    	for(Joueur j:partie.getListe()) {
+    		System.out.println("le joueur	"+j.getNom()+"a le pion "+j.getPion().getDescription()+" il a "+j.getAgrent());
+			System.out.println(Partie.getListe().size());
+    	}
+ 
     	
 	}
     
-    
-    
+        
     private void moveplayer(ImageView image,int x, int y) {
-    	//deplacer le joueur vers la case(x,y)
-		Partie.getListe().get(0).setX(x);
-		Partie.getListe().get(0).setY(y);
+
+		Partie.getListe().get(tour).setX(x);
+		Partie.getListe().get(tour).setY(y);
        // deplacer le pion 
     	GridPane.setConstraints(image, x, y);
-    	
-    	
+	   //deplacer le joueur vers la case(x,y)
+  
+    		
     	//verifier x du player et x du gare
     	for(int j = 0; j < Gare.position.length; ++j) {
     		if(Gare.position[j][0]==x && Gare.position[j][1]==y) {
@@ -251,26 +261,15 @@ public class BoardController implements Initializable{
     			
     		}
     	}
-    	
-    	
-    	for(int j = 0; j < AllerPrison.position.length; ++j) {
-    		if(AllerPrison.position[j][0]==x && AllerPrison.position[j][1]==y) {
-    			System.out.println("tu es dans aller en prison! \n");
-    			FabriqueGoGail fabrique=new FabriqueGoGail();
-				MethodeGoGail methode=fabrique.getMethode("caseGoGail");
-				methode.allezAuprison();
-				moveplayer(player1, 0, 10);
-				AfficherInterface aff = new AfficherInterface();
-    			aff.afficher("/AllerAuPrison/utiliserCarte.fxml");
-    		}
-    	}
+    	    	
+    	//verifier x du player et x du communite
     	
     	for(int j = 0; j < CaisseCommunaute.position.length; ++j) {
     		if(CaisseCommunaute.position[j][0]==x && CaisseCommunaute.position[j][1]==y) {
     			System.out.println("tu es dans caisse communaute! \n");
     		}
     	}
-    	
+    	//verifier x du player et x du chance
     	for(int j = 0; j < Chance.position.length; ++j) {
     		if(Chance.position[j][0]==x && Chance.position[j][1]==y) {
     			System.out.println("****tu es dans la chance!**** \n");
@@ -280,76 +279,84 @@ public class BoardController implements Initializable{
     			
     			if(Chance.getCarte(indice)=="La banque vous verse un dividende de 300 $") {
     				System.out.println("---La banque vous verse un dividende de 300 $--- \n");
-    				int argent=partie.getListe().get(0).getAgrent();
-    				partie.getListe().get(0).setAgrent(argent+300);
-    				System.out.println("apres setArgent :	"+partie.getListe().get(0).getAgrent()+"	\n"	);
+    				int argent=partie.getListe().get(tour).getAgrent();
+    				partie.getListe().get(tour).setAgrent(argent+300);
+    				System.out.println("apres setArgent :	"+partie.getListe().get(tour).getAgrent()+"	\n"	);
     			}
     			
     			else if(Chance.getCarte(indice)=="Payez les frais scolarité 500 $") {
     				System.out.println("---Payez les frais scolarité 500 $--- \n");
-					int argent=models.Partie.getListe().get(0).getAgrent();
-					partie.getListe().get(0).setAgrent(argent-500);
-					System.out.println("apres setArgent	:	"+partie.getListe().get(0).getAgrent()+"	\n");
+					int argent=models.Partie.getListe().get(tour).getAgrent();
+					partie.getListe().get(tour).setAgrent(argent-500);
+					System.out.println("apres setArgent	:	"+partie.getListe().get(tour).getAgrent()+"	\n");
     			}
     			
     			else if(Chance.getCarte(indice)=="Allez en prison. Ne franchissez pas la case départ Ne touchez pas 200 $") {
-    				System.out.println("---Allez en prison. Ne franchissez pas la case départ Ne touchez pas 200 $--- \n");
-    				//utilisation de la fabriqueGoGail
-    				FabriqueGoGail fabrique=new FabriqueGoGail();
-    				MethodeGoGail methode=fabrique.getMethode("carteGoGail");
-    				methode.allezAuprison();
-    				partie.getListe().get(0).setX(0);
-    				partie.getListe().get(0).setY(10);
-    				moveplayer(player1, 0, 10);
+    				System.out.println("---Allez en prison. Ne franchissez pas la case départ Ne touchez pas 200 $--- \n");				
+    				partie.getListe().get(tour).setX(0);
+    				partie.getListe().get(tour).setY(10);
+    				// joueur est dans le prison 
+    				partie.getListe().get(tour).setEstEnPrison(true);
+    			
+    				if(tour==0) {
+    	            	moveplayer(player1, 0, 10);
+    	            	}else {
+    	            		moveplayer(player2, 0, 10);
+    	            	}
     			}
     			
     			else if(Chance.getCarte(indice)=="Sortir de prison") {
     				
     				System.out.println("---Sortir de prison---	\n");
-    				partie.getListe().get(0).setCarteprison(partie.getListe().get(0).getCarteprison()+1);
-					System.out.println("nombre de  carte sortie de prison "+partie.getListe().get(0).getCarteprison());
+    				partie.getListe().get(tour).setCarteprison(partie.getListe().get(tour).getCarteprison()+1);
+					System.out.println("nombre de  carte sortie de prison "+partie.getListe().get(tour).getCarteprison());
     				
     			}
     			else if(Chance.getCarte(indice-1)=="Vous avez gagné 1000") {
     				System.out.println("---Vous avez gagné 1000--- \n");
-					int argent=partie.getListe().get(0).getAgrent();
-					partie.getListe().get(0).setAgrent(argent+1000);
-					System.out.println("apres setArgent :"+models.Partie.getListe().get(0).getAgrent());
+					int argent=partie.getListe().get(tour).getAgrent();
+					partie.getListe().get(tour).setAgrent(argent+1000);
+					System.out.println("apres setArgent :"+models.Partie.getListe().get(tour).getAgrent());
     			}
     			AfficherInterface aff = new AfficherInterface();
     			aff.afficher("/fenetres/carteChance.fxml");
-    			
-    			
-    		}
+    		   }
     	}
     	
+    	//verifier x du player et x dans la compgnie 
     	for(int j = 0; j < Compagnie.position.length; ++j) {
     		if(Compagnie.position[j][0]==x && Compagnie.position[j][1]==y) {
     			System.out.println("tu es dans la compagnie!");
     		}
     	}
-    	
+    	//verifier x du player et x du Go
     	for(int j = 0; j < Go.position.length; ++j) {
     		if(Go.position[j][0]==x && Go.position[j][1]==y) {
     			System.out.println("tu es dans Go!");
     		}
     	}
-    	
+    	//verifier x du player et x du impot
     	for(int j = 0; j < Impot.position.length; ++j) {
     		if(Impot.position[j][0]==x && Impot.position[j][1]==y) {
     			System.out.println("tu es dans impot!");
     		}
     	}
-    	
+    	//verifier x du player et x du parque
     	for(int j = 0; j < ParcGratuit.position.length; ++j) {
     		if(ParcGratuit.position[j][0]==x && ParcGratuit.position[j][1]==y) {
     			System.out.println("tu es dans parc pratuit!");
     		}
     	}
-    	
+    	//verifier x du player et x du Gail
     	for(int j = 0; j < Prison.position.length; ++j) {
     		if(Prison.position[j][0]==x && Prison.position[j][1]==y) {
-    			System.out.println("tu es dans prison!");
+    			if (partie.getListe().get(tour).getEstEnPrison()) {
+    				System.out.println("Holly shit darling your in the  Gail ");
+
+    			}else {
+    				System.out.println("you are just visiting the Gail you will be arrested soon *-* ");
+    			}
+    			
     		}
     	}
     	
@@ -358,29 +365,45 @@ public class BoardController implements Initializable{
     			System.out.println("tu es dans taxe!");
     		}
     	}
-    	
-    	for(int j = 0; j < Terrain.getListe().size(); ++j) {
-    	
-    		if(Terrain.getListe().get(j).getX()==x && Terrain.getListe().get(j).getY()==y) {
-    			System.out.println("tu es dans un Terrain!"+Terrain.getListe().get(j).getColeur()+
-    					"tu doit payer "+Terrain.prix);
-    			System.out.println("je suis boarder "+FenetreController.image_name);
-    		//qffichzge d interf	ce 
-    			AfficherInterface aff=new AfficherInterface();
-    			aff.afficher("/fenetres/fenetre.fxml");
-    			
+    	for(int j = 0; j < AllerPrison.position.length; ++j) {
+    		if(AllerPrison.position[j][0]==x && AllerPrison.position[j][1]==y) {
+    			System.out.println("tu es dans aller en prison! \n");
+    			partie.getListe().get(tour).setEstEnPrison(true);
+				//moveplayer(player1, 0, 10);
+    			Partie.getListe().get(tour).setX(0);
+    			Partie.getListe().get(tour).setY(10);
+    	       // deplacer le pion 
+    	    	GridPane.setConstraints(image, 0, 10);				
     		}
+    	}
+    	//--------------------------------terran verication-----------------------------------
+    	for(int j = 0; j < Terrain.getListe().size(); ++j) {
+    		
+    		if(Terrain.getListe().get(j).getX()==x && Terrain.getListe().get(j).getY()==y) {
+    			System.out.println("----------------------terrain process-----------");
+    			if(Terrain.getListe().get(j).isVendu()) {
+    				System.out.println("deja vendue Sorry  Taxe mother FUCKER");
+    				//payements des tarif
+    				System.out.println("Terrain  occuppere :payements des tarif 500$ ");
+    				partie.getListe().get(tour).setAgrent(partie.getListe().get(tour).getAgrent()-500);
+    				System.out.println("ARGENT :"+partie.getListe().get(tour).getAgrent());
+    			}else {
+    				
+        			System.out.println("tu es dans un Terrain! :"+Terrain.getListe().get(j).getColeur()+
+        					"tu doit payer: "+Terrain.prix+" ce terran est vendue :"+Terrain.getListe().get(j).isVendu());
+        		//Affichage d interface 
+        			AfficherInterface aff=new AfficherInterface();
+        			aff.afficher("/fenetres/fenetre.fxml");
+        			System.out.println("------------------------------");
+    			}
+    	
+    			System.out.println("----------------------terrain process fi--------");
+    		}
+    	
     		{
     		
-//        	if (FenetreController.image_name != "null") {
-//    			System.out.println("nice");
-//    			System.out.println("je suis boarder2 "+FenetreController.image_name);
-//    			System.out.println("nice2");
-//    			if (FenetreController.image_name == "blueciel1" ||FenetreController.image_name == "blueciel2" || FenetreController.image_name == "blueciel4") {
-//    				move6.setStyle("-fx-background-color:  black;");
-//    			    FenetreController.image_name = "null";
-//    		}	} 
-    			String koik =Partie.getListe().get(0).getColeur();
+ 
+    			String koik =Partie.getListe().get(tour).getColeur();
         	
     			switch(FenetreController.image_name) {
             	case "brown9" :  brown9.setStyle("-fx-background-color:  "+koik+";");
@@ -448,29 +471,22 @@ public class BoardController implements Initializable{
                 break;
             	case "blue9" : blue9.setStyle("-fx-background-color: "+koik+";");
                 FenetreController.image_name = "null";
-                break;
-		                       
-		                       
-		                       
+                break;                      
         	}
     	}
-    	
-    	
-    	
-    	
 	}
-    	models.Partie.getListe().get(0).setX(x);
-    	models.Partie.getListe().get(0).setY(y);
-    	System.out.println("le joueur "+Partie.getListe().get(0).getNom()+"a: \n X= "+models.Partie.getListe().get(0).getX()+"et Y ="+Partie.getListe().get(0).getY());
+    	models.Partie.getListe().get(tour).setX(x);
+    	models.Partie.getListe().get(tour).setY(y);
+    	System.out.println("le joueur :  "+Partie.getListe().get(tour).getNom()+"a: \n X = "+models.Partie.getListe().get(tour).getX()+"et Y ="+Partie.getListe().get(tour).getY());
+  	
     }
-    	
     
     @FXML
     void decrimenteCarte() {
     	System.out.println("------ en train de decrementer le nombre de carte");
     	models.Partie.getInstance();
-		models.Partie.getListe().get(0).setCarteprison(models.Partie.getListe().get(0).getCarteprison()-1);
-		System.out.println("le nombre de carte devient = "+models.Partie.getListe().get(0).getCarteprison());
+		models.Partie.getListe().get(tour).setCarteprison(models.Partie.getListe().get(tour).getCarteprison()-1);
+		System.out.println("le nombre de carte devient = "+models.Partie.getListe().get(tour).getCarteprison());
     }
 
     @FXML
@@ -482,50 +498,78 @@ public class BoardController implements Initializable{
     public static int nbDoublon=0;
     @FXML
     void lancerDe() {
-
-    	de.lancerDes();
+    	if (tour == AccueilController.ki-1) {
+    		tour=0;
+    		
+    	}else {
+    		tour++;
+    	}
     
+    	de.lancerDes();
+    	des1=de.getDe1();
+    	des2=de.getDe2();
+    	
     	int de1 = de.getDe1();
     	Image imgde1 = new Image("/ressources/images/de"+de1+".jpg");
         imgDe1.setImage(imgde1);
         int de2 = de.getDe2();
         Image imgde2 = new Image("/ressources/images/de"+de2+".jpg");
         imgDe2.setImage(imgde2);
-        
+    	if(partie.getListe().get(tour).getEstEnPrison()== false)
+    	   {
+    		
+    	round++;
+    	System.out.println("*************rounde :"+round+"******************");
+
+      System.out.println("player index : "+tour);
+      System.out.println("nom player  "+ partie.getListe().get(tour).getNom());
+    	
+      partie.getListe().get(tour).setSommedES( partie.getListe().get(tour).getSommedES()+de.getDes());
         somme=somme+de.getDes();
-        System.out.println("somme----"+somme);
-        if(somme>40) {
+        System.out.println("somme----"+partie.getListe().get(tour).getSommedES());
+        if(partie.getListe().get(tour).getSommedES()>40) {
         	somme=somme-40;
+        	 partie.getListe().get(tour).setSommedES( partie.getListe().get(tour).getSommedES()-40);
         }
-        if(somme<10 ) {
-        	moveplayer(player1, 10-somme, 10);
-        }else if (somme<20){
-        	moveplayer(player1, 0, 20-somme);
-        }else if (somme<30){
-        	moveplayer(player1, 10-(30-somme), 0);
-        }else if (somme<40){
-        	moveplayer(player1, 10,10-(40-somme));
+        if(partie.getListe().get(tour).getSommedES()<10 ) {
+        	if(tour==0) {
+        	 moveplayer(player1, 10-partie.getListe().get(tour).getSommedES(), 10);
+        	}else {
+        		   moveplayer(player2, 10-partie.getListe().get(tour).getSommedES(), 10);
+        	}
+        }else if (partie.getListe().get(tour).getSommedES()<20){
+        	if(tour==0) {
+            	moveplayer(player1, 0, 20-partie.getListe().get(tour).getSommedES());
+            	}else {
+            		moveplayer(player2, 0, 20-partie.getListe().get(tour).getSommedES());
+            	}
+        }else if (partie.getListe().get(tour).getSommedES()<30){
+        	if(tour==0) {
+            	moveplayer(player1, 10-(30-partie.getListe().get(tour).getSommedES()), 0);
+            	}else {
+            		moveplayer(player2, 10-(30-partie.getListe().get(tour).getSommedES()), 0);
+            	}
+        }else if (partie.getListe().get(tour).getSommedES()<40){
+        	if(tour==0) {
+            	moveplayer(player1, 10, 10-(40-partie.getListe().get(tour).getSommedES()));
+            	}else {
+            		moveplayer(player2, 10, 10-(40-partie.getListe().get(tour).getSommedES()));
+            	}
         }  
         
     	// verification des doublans 
     	//doublons=3 faire rentrer  au gail 
-    	if (partie.getListe().get(0).doublans(de.getDe1(),de.getDe2())) {
-			partie.getListe().get(0).setX(0);
-			partie.getListe().get(0).setY(10);
-			moveplayer(player1, 0, 10);
+    	if (partie.getListe().get(tour).doublans(de.getDe1(),de.getDe2())) {
+			partie.getListe().get(tour).setX(0);
+			partie.getListe().get(tour).setY(10);
+			if(tour==0) {
+	        	moveplayer(player1, 10-partie.getListe().get(tour).getSommedES(), 10);
+	        	}else {
+	        		moveplayer(player2, 10-partie.getListe().get(tour).getSommedES(), 10);
+	        	}
     	}
     	// verification si le joueur il est deja  dans le gaill
-    	for(int j = 0; j < Prison.position.length; ++j) {
-    		if(Prison.position[j][0]==partie.getListe().get(0).getX() && Prison.position[j][1]==partie.getListe().get(0).getY()) {
-    			System.out.println("dommage tu va rester ici si seulement si tu es dans prison!");
-    		Context ctx = new Context ();
-    		ctx.setTr(new Payemnts());
-    		ctx.appliSTR();
-    		ctx.setTr(new  CarteSortir());
-    		ctx.appliSTR();
-    		
-    		}
-    	}
+    
     	
 //        if(de1==de2) {
 //    		if(nombreDoublons==3) {
@@ -538,6 +582,12 @@ public class BoardController implements Initializable{
 //        		lancerDe();
 //    		}
 //    	}
+    	     }else {
+      		   System.out.println("sorry ypu are in the gail");
+      		 AfficherInterface aff = new AfficherInterface();
+ 			aff.afficher("/fenetres/carteSortirPrison.fxml");
+      	    }
+    	System.out.println("*************fin round*****************");
     }
         
     
@@ -600,10 +650,5 @@ public class BoardController implements Initializable{
 
 
 
-	
-
-	
-    
-    
 
 }

@@ -3,10 +3,21 @@ package models;
 import javafx.scene.image.ImageView;
 
 public class Couleur {
-	int x,y;
-	String image;
+	public int x,y;
+	public String image;
+	public boolean vendu ;   
 	
+	 public boolean isVendu() {
+		return vendu;
+	}
 
+
+	public void setVendu(boolean vendu) {
+		this.vendu = vendu;
+	}
+
+
+	public String coleur;
 
 
 	public String getImage() {
@@ -19,11 +30,12 @@ public class Couleur {
 	}
 
 
-	String coleur;
 
-	public Couleur(int x, int y,String couleur,String image) {
+
+	public Couleur(int x, int y,String couleur,String image ,boolean vendu ) {
 		this.x=x;
 		this.y=y;
+		this.vendu=vendu;		
 		this.coleur=couleur;
 		this.image = image;
 
