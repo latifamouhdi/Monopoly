@@ -57,21 +57,169 @@ import models.Rand;
 public class BoardController implements Initializable{
 
     @FXML
-    private ImageView finiched;
-	@FXML
+    private Label activePlayerName;
+
+    @FXML
+    private Pane blueciel2_2;
+
+    @FXML
+    private ImageView imgBtnDe;
+
+    @FXML
+    private Pane orange1_1;
+
+    @FXML
+    private Pane blue9;
+
+    @FXML
+    private Pane blue7;
+
+    @FXML
+    private Label userCash;
+
+    @FXML
+    private Pane yellow6;
+
+    @FXML
+    private Pane yellow7;
+
+    @FXML
+    private Button iconifiedButton;
+
+    @FXML
+    private AnchorPane boardAnchor;
+
+    @FXML
+    private Pane yellow9;
+
+    @FXML
+    private Pane yellow6_6;
+
+    @FXML
+    private Button jailEscapeButton;
+
+    @FXML
+    private Pane blue7_7;
+
+    @FXML
+    private TextFlow printOut;
+
+    @FXML
+    private Button statsButton;
+
+    @FXML
+    private Pane move7_7;
+
+    @FXML
+    private Pane orange4;
+
+    @FXML
+    private Pane orange2;
+
+    @FXML
+    private Pane orange1;
+
+    @FXML
+    private Pane green4;
+
+    @FXML
+    private ScrollPane scroll;
+
+    @FXML
+    private ImageView activePlayerSprite;
+
+    @FXML
     private Pane move6;
 
     @FXML
     private Pane move7;
 
     @FXML
-    private Pane orange1;
+    private Pane red3_3;
 
     @FXML
-    private Pane orange2;
+    private Pane green2;
 
     @FXML
-    private Pane orange4;
+    private Pane red1_1;
+
+    @FXML
+    private Pane green1;
+
+    @FXML
+    private Pane green2_2;
+
+    @FXML
+    private Pane green4_4;
+
+    @FXML
+    private Pane move9;
+
+    @FXML
+    private GridPane gridPane;
+
+    @FXML
+    private Pane blueciel4_4;
+
+    @FXML
+    private Pane blueciel1_1;
+
+    @FXML
+    private Pane blueciel1;
+
+    @FXML
+    private Pane blueciel2;
+
+    @FXML
+    private Pane blueciel4;
+
+    @FXML
+    private Pane orange4_4;
+
+    @FXML
+    private Label activePlayerLocationName;
+
+    @FXML
+    private Pane orange2_2;
+
+    @FXML
+    private ImageView imgDe1;
+
+    @FXML
+    private Pane yellow9_9;
+
+    @FXML
+    private ImageView imgDe2;
+
+    @FXML
+    private Button rollDiceButton;
+
+    @FXML
+    private ImageView finiched;
+
+    @FXML
+    private Pane yellow7_7;
+
+    @FXML
+    private Pane brown7_7;
+
+    @FXML
+    private Pane move9_9;
+
+    @FXML
+    private Pane brown9_9;
+
+    @FXML
+    private Pane move6_6;
+
+    @FXML
+    private Pane blue9_9;
+
+    @FXML
+    private Pane green1_1;
+
+    @FXML
+    private Pane red4_4;
 
     @FXML
     private Pane red1;
@@ -83,44 +231,11 @@ public class BoardController implements Initializable{
     private Pane red4;
 
     @FXML
-    private Pane yellow6;
-
-    @FXML
-    private Pane yellow7;
-
-    @FXML
-    private Pane yellow9;
-
-    @FXML
-    private Pane green1;
-
-    @FXML
-    private Pane green2;
-
-    @FXML
-    private Pane green4;
-
-    @FXML
-    private Pane blue7;
-
-    @FXML
-    private Pane blue9;
-
-    @FXML
     private Pane brown9;
 
     @FXML
     private Pane brown7;
-
-    @FXML
-    private Pane blueciel4;
-
-    @FXML
-    private Pane blueciel2;
-
-    @FXML
-    private Pane blueciel1;
-    
+   
 	public Terrain terrain;
 	
 	public static Partie partie;
@@ -132,31 +247,10 @@ public class BoardController implements Initializable{
     private ImageView player2;
 
     @FXML
-    private AnchorPane boardAnchor;
-
-    @FXML
-    private GridPane gridPane;
-
-    @FXML
-    private Button rollDiceButton;
-
-    @FXML
     private Button tradeButton;
 
     @FXML
-    private Button statsButton;
-
-    @FXML
-    private Button jailEscapeButton;
-
-    @FXML
     private Button endTurnButton;
-
-    @FXML
-    private ImageView activePlayerSprite;
-
-    @FXML
-    private Label activePlayerName;
     
     @FXML
     private Button startBtn;
@@ -165,45 +259,19 @@ public class BoardController implements Initializable{
     private Label activePlayerCash;
 
     @FXML
-    private Label activePlayerLocationName;
-
-    @FXML
-    private Button iconifiedButton;
-
-    @FXML
     private Button exitButton;
 
     @FXML
     private ImageView userSprite;
-
-    @FXML
-    private Label userCash;
-
-    @FXML
-    private ScrollPane scroll;
-
-    @FXML
-    private TextFlow printOut;
-
+    
     public CarteChanceController carteChanceController;
     private Parent fxml;
-    
-    @FXML
-    private ImageView imgBtnDe;
-    
-    @FXML
-    private ImageView imgDe1;
-
-    @FXML
-    private ImageView imgDe2;
     
     public static int indice;
     
     @FXML
     private static Label lab;
     
-    @FXML
-    private Pane move9;
     
     @FXML
     private Button oui_btn;
@@ -402,74 +470,74 @@ public class BoardController implements Initializable{
     	
     		{
     		
- 
     			String koik =Partie.getListe().get(tour).getColeur();
         	
     			switch(FenetreController.image_name) {
-            	case "brown9" :  brown9.setStyle("-fx-background-color:  "+koik+";");
+            	case "brown9" :  brown9_9.setStyle("-fx-background-color:  "+koik+";");
     		                       FenetreController.image_name = "null";
     		                       break;
-            	case "brown7" : brown7.setStyle("-fx-background-color:  "+koik+";");
+            	case "brown7" : brown7_7.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "blueciel4" : blueciel4.setStyle("-fx-background-color:  "+koik+";");
+            	case "blueciel4" : blueciel4_4.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "blueciel2" : blueciel2.setStyle("-fx-background-color:  "+koik+";");
+            	case "blueciel2" : blueciel2_2.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "blueciel1" : blueciel1.setStyle("-fx-background-color:  "+koik+";");
+            	case "blueciel1" : blueciel1_1.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "move9" : move9.setStyle("-fx-background-color:  "+koik+";");
+            	case "move9" : move9_9.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "move7" : move7.setStyle("-fx-background-color:  "+koik+";");
+            	case "move7" : move7_7.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "move6" : move6.setStyle("-fx-background-color:  "+koik+";");
+            	case "move6" : move6_6.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "orange4" : orange4.setStyle("-fx-background-color:  "+koik+";");
+            	case "orange4" : orange4_4.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "orange2" : orange2.setStyle("-fx-background-color:  "+koik+";");
+            	case "orange2" : orange2_2.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "orange1" : orange1.setStyle("-fx-background-color:  "+koik+";");
+            	case "orange1" :orange1_1.setStyle("-fx-background-color:  "+koik+";");
+                FenetreController.image_name = "null";
+    
+                break;
+            	case "red1" : red1_1.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "red1" : red1.setStyle("-fx-background-color:  "+koik+";");
+            	case "red3" : red3_3.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "red3" : red3.setStyle("-fx-background-color:  "+koik+";");
+            	case "red4" : red4_4.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "red4" : red4.setStyle("-fx-background-color:  "+koik+";");
+            	case "yellow6" : yellow6_6.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "yellow6" : yellow6.setStyle("-fx-background-color:  "+koik+";");
+            	case "yellow7" : yellow7_7.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "yellow7" : yellow7.setStyle("-fx-background-color:  "+koik+";");
+            	case "yellow9" : yellow9_9.setStyle("-fx-background-color: "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "yellow9" : yellow9.setStyle("-fx-background-color: "+koik+";");
+            	case "green1" : green1_1.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "green1" : green1.setStyle("-fx-background-color:  "+koik+";");
+            	case "green2" : green2_2.setStyle("-fx-background-color: "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "green2" : green2.setStyle("-fx-background-color: "+koik+";");
+            	case "green4" : green4_4.setStyle("-fx-background-color: "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "green4" : green4.setStyle("-fx-background-color: "+koik+";");
+            	case "blue7" : blue7_7.setStyle("-fx-background-color:  "+koik+";");
                 FenetreController.image_name = "null";
                 break;
-            	case "blue7" : blue7.setStyle("-fx-background-color:  "+koik+";");
-                FenetreController.image_name = "null";
-                break;
-            	case "blue9" : blue9.setStyle("-fx-background-color: "+koik+";");
+            	case "blue9" : blue9_9.setStyle("-fx-background-color: "+koik+";");
                 FenetreController.image_name = "null";
                 break;                      
         	}
