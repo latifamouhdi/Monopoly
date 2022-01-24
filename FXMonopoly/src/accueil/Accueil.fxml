@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="anchor-pane" prefHeight="324.0" prefWidth="452.0" stylesheets="@AccueilStyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AccueilController">
+    <children>
+      <ImageView fitHeight="142.0" fitWidth="207.0" layoutX="121.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="141.6666717529297">
+         <image>
+            <Image url="@../ressources/images/MonopolyBanner.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="37.0" layoutY="126.0" prefHeight="55.0" prefWidth="383.0" text="How Many Players" textFill="#f21717" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="36.0">
+         <font>
+            <Font name="Calibri" size="48.0" />
+         </font>
+      </Label>
+      <Button fx:id="deuxBtn" layoutX="134.0" layoutY="215.0" mnemonicParsing="false" onAction="#addNbPlayers2" text="2">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="troisBtn" layoutX="204.0" layoutY="215.0" mnemonicParsing="false" onAction="#addNbPlayers3" text="3">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="quatreBtn" layoutX="274.0" layoutY="215.0" mnemonicParsing="false" onAction="#addNbPlayers4" text="4">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
